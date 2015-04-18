@@ -11,6 +11,9 @@ namespace LD32_OSTGame
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        KeyboardState PreviousKeyboard;
+        MouseState PreviousMouse;
+        GamePadState PreviousGamePad;
 
         public Game1()
             : base()
@@ -63,7 +66,43 @@ namespace LD32_OSTGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            KeyboardState currentKeyboard = new KeyboardState();
+
+            if(currentKeyboard.IsKeyDown(Keys.W))
+            {
+
+            }
+
+            if(currentKeyboard.IsKeyDown(Keys.A))
+            {
+
+            }
+
+            if(currentKeyboard.IsKeyDown(Keys.D))
+            {
+
+            }
+
+            if(currentKeyboard.IsKeyDown(Keys.S))
+            {
+
+            }
+
+            if(currentKeyboard.IsKeyDown(Keys.Q))
+            {
+
+            }
+
+            if(currentKeyboard.IsKeyDown(Keys.E))
+            {
+
+            }
+
+            if(currentKeyboard.IsKeyDown(Keys.Space))
+            {
+
+            }
+            
 
             base.Update(gameTime);
         }
@@ -74,7 +113,7 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Pink);
 
             // TODO: Add your drawing code here
 
