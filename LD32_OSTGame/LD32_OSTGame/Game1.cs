@@ -19,7 +19,7 @@ namespace LD32_OSTGame
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
 
-        List<Entity> Entites = new List<Entity>();        
+        public static List<Entity> Entites = new List<Entity>();        
         private Texture2D planeImg;
         private Plane plane;        
         
@@ -61,7 +61,7 @@ namespace LD32_OSTGame
             Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
-            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
+            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
         }
 
         /// <summary>
@@ -93,17 +93,18 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.A))
             {
-                plane.Move(Direction.Down);
+                plane.Rotate(Direction.Left);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.D))
             {
-                plane.Move(Direction.Left);
+                plane.Rotate(Direction.Right);
+
             }
 
             if(currentKeyboard.IsKeyDown(Keys.S))
             {
-                plane.Move(Direction.Right);
+                //nothing? you must turn and thrust in opposite direction
             }
 
             if(currentKeyboard.IsKeyDown(Keys.Q))
@@ -181,11 +182,7 @@ namespace LD32_OSTGame
         {
             GraphicsDevice.Clear(Color.Black);
 
-            spriteBatch.Begin();
- 
-            plane.Draw(spriteBatch);
- 
-            spriteBatch.End();
+
 
 
             // TODO: Add your drawing code here
