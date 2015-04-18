@@ -88,37 +88,37 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.W))
             {
-                plane.Move();
+                plane.Move(Direction.Up);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.A))
             {
-
+                plane.Move(Direction.Down);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.D))
             {
-
+                plane.Move(Direction.Left);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.S))
             {
-
+                plane.Move(Direction.Right);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.Q))
             {
-
+                plane.SwitchUpgrade(SwitchDirection.Left);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.E))
             {
-
+                plane.SwitchUpgrade(SwitchDirection.Right);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.Space))
             {
-
+                plane.Fire();
             }
 
             PreviousKeyboard = currentKeyboard;
