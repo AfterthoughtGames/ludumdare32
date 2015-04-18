@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace LD32_OSTGame
 {
@@ -15,6 +16,8 @@ namespace LD32_OSTGame
         KeyboardState PreviousKeyboard;
         MouseState PreviousMouse;
         GamePadState PreviousGamePad;
+        DateTime LimitedUpdateTime;
+        int limitDelay = 50;
 
         List<Entity> Entites = new List<Entity>();        private Texture2D planeImg;
         private Plane plane;        public Game1()
@@ -38,7 +41,7 @@ namespace LD32_OSTGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            LimitedUpdateTime = DateTime.Now;
 
             base.Initialize();
         }
@@ -156,6 +159,8 @@ namespace LD32_OSTGame
             PreviousGamePad = currentPad;
             #endregion
 
+
+
             base.Update(gameTime);
         }
 
@@ -165,7 +170,7 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Pink);
+            GraphicsDevice.Clear(Color.Black);
 
 
 
