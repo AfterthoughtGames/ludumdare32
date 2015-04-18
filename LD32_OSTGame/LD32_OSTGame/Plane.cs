@@ -17,6 +17,7 @@ namespace LD32_OSTGame
         protected List<PowerUp> PowerUps { get; set; }
         private int PowerSlotIndex { get; set; }
         public Guid PlaneID { get; set; }
+        private TimeSpan Lastfired { get; set; }
 
         public Plane(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotation) : base()
         {
@@ -35,12 +36,17 @@ namespace LD32_OSTGame
             PowerUps.Add(new Shard());
         }
 
-        public void Fire()
+        public void Fire(GameTime time)
         {
             if(PowerUps[PowerSlotIndex].GetType() == typeof(Shard))
             {
-                Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg));
+                if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
+                {
+                    Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg));
+                }
             }
+
+            Lastfired = time.TotalGameTime;
         }
 
         public void SwitchUpgrade(SwitchDirection dir)
