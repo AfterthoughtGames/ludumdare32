@@ -31,6 +31,11 @@ namespace LD32_OSTGame
             
         }
 
+        public void Rotate(Direction dirToMove)
+        {
+            
+        }
+
         public void Fire()
         {
             

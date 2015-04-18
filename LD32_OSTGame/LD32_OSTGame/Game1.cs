@@ -88,22 +88,23 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.W))
             {
-                plane.Move();
+                plane.Move(Direction.Up);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.A))
             {
-
+                plane.Rotate(Direction.Left);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.D))
             {
+                plane.Rotate(Direction.Right);
 
             }
 
             if(currentKeyboard.IsKeyDown(Keys.S))
             {
-
+                //nothing? you must turn and thrust in opposite direction
             }
 
             if(currentKeyboard.IsKeyDown(Keys.Q))
