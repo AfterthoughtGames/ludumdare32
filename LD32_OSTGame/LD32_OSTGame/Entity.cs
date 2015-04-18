@@ -10,12 +10,13 @@ namespace LD32_OSTGame
     //Base Entity becasue Matt and I wanted it
     public class Entity
     {
-        Texture2D image { get; set; }
-        Vector2 Position { get; set; }
-        Vector2 Velocity { get; set; }
-        float Rotation { get; set; }
-        float Scale { get; set; }
-        int Health { get; set; }
+        protected Texture2D image { get; set; }
+        protected Vector2 Position { get; set; }
+        protected Vector2 Velocity { get; set; }
+        protected float Rotation { get; set; }
+        protected float Scale { get; set; }
+        protected int Health { get; set; }
+
 
     }
 }
