@@ -19,7 +19,7 @@ namespace LD32_OSTGame
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
 
-        List<Entity> Entites = new List<Entity>();        
+        public static List<Entity> Entites = new List<Entity>();        
         private Texture2D planeImg;
         private Plane plane;        
         

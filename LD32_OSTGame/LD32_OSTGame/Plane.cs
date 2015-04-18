@@ -7,12 +7,12 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
-    public static enum Direction
+    public enum Direction
     {
         Up, Down, Left, Right
     }
 
-    public static enum SwitchDirection
+    public enum SwitchDirection
     {
         Left, Right
     }
