@@ -26,7 +26,7 @@ namespace LD32_OSTGame
             this.Velocity = velocity;
         }
 
-        public void Move()
+        public void Move(Direction dirToMove)
         {
             
         }
