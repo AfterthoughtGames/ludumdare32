@@ -17,6 +17,9 @@ namespace LD32_OSTGame
         protected float Scale { get; set; }
         protected int Health { get; set; }
 
-
+        public virtual void Collided(Entity collidedWith)
+        {
+            //make this do things
+        }
     }
 }
