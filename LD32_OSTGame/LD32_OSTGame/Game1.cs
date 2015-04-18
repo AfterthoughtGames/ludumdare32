@@ -26,6 +26,8 @@ namespace LD32_OSTGame
         private Texture2D planeImg;
         private Plane plane;
 
+        private int resolutionOption = 0;
+
         private Texture2D Ball1;
         public static Texture2D ShardImg;
 
@@ -148,11 +150,11 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.Space))
             {
-                plane.Fire();
+                plane.Fire(gameTime);
             }
 
             // util keys
-            if(currentKeyboard.IsKeyDown(Keys.F12))
+            if(currentKeyboard.IsKeyDown(Keys.F12) && !PreviousKeyboard.IsKeyDown(Keys.F12))
             {
                 if(Game1.DebugMode == true)
                 {
@@ -161,6 +163,46 @@ namespace LD32_OSTGame
                 else
                 {
                     Game1.DebugMode = true;
+                }
+            }
+
+            if (currentKeyboard.IsKeyDown(Keys.F11) && !PreviousKeyboard.IsKeyDown(Keys.F11))
+            {
+                if(resolutionOption <= 3)
+                {
+                    resolutionOption++;
+                }
+                else
+                {
+                    resolutionOption = 0;
+                }
+
+                switch (resolutionOption)
+                {
+                    case 1:
+                        graphics.PreferredBackBufferWidth = 1280;
+                        graphics.PreferredBackBufferHeight = 720;
+                        graphics.ToggleFullScreen();
+                        graphics.ApplyChanges();
+                        break;
+                    case 2:
+                        graphics.PreferredBackBufferWidth = 1920;
+                        graphics.PreferredBackBufferHeight = 1080;
+                        graphics.ApplyChanges();
+                        break;
+                    case 3:
+                        graphics.PreferredBackBufferWidth = 1024;
+                        graphics.PreferredBackBufferHeight = 768;
+                        graphics.ApplyChanges();
+                        break;
+                    case 0:
+                        graphics.PreferredBackBufferWidth = 1024;
+                        graphics.PreferredBackBufferHeight = 768;
+                        graphics.ToggleFullScreen();
+                        graphics.ApplyChanges();
+                        break;
+                    default:
+                        break;
                 }
             }
 
