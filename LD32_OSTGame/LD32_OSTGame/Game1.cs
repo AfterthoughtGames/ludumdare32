@@ -177,6 +177,9 @@ namespace LD32_OSTGame
                 // plane check
                 foreach(Entity currentEnt in Entites)
                 {
+                    //update loop here too
+                    currentEnt.Update(gameTime);
+
                     if(plane.CheckCollsion(currentEnt))
                     {
                         plane.Collided(currentEnt);
@@ -214,6 +217,8 @@ namespace LD32_OSTGame
             spriteBatch.Begin();
  
             plane.Draw(spriteBatch, gameTime);
+
+            drawEntities(spriteBatch, gameTime);
  
             spriteBatch.End();
 
@@ -223,12 +228,20 @@ namespace LD32_OSTGame
             base.Draw(gameTime);
         }
 
+        private void drawEntities(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach(Entity ent in Entites)
+            {
+                ent.Draw(gameTime, spriteBatch);
+            }
+        }
+
         private void populateEntities()
         {
             Random rand = new Random(DateTime.Now.Millisecond);
             
             //make rocks
-            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, graphics.GraphicsDevice.Viewport.Width), rand.Next(0, graphics.GraphicsDevice.Viewport.Height)), 1, Vector2.Zero);
+            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, graphics.GraphicsDevice.Viewport.Width), rand.Next(0, graphics.GraphicsDevice.Viewport.Height)), 1, new Vector2((float)rand.Next(-100,100),(float)rand.Next(-100,100)),(float)rand.Next(-100,100)/100.0f);
 
             Entites.Add(ball);
         }
