@@ -219,16 +219,23 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.SetRenderTarget(bigScreen);
+
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
- 
-            plane.Draw(spriteBatch, gameTime);
-
-            drawEntities(spriteBatch, gameTime);
- 
+                plane.Draw(spriteBatch, gameTime);
+                drawEntities(spriteBatch, gameTime);
             spriteBatch.End();
 
+            GraphicsDevice.SetRenderTarget(null);
+
+            GraphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
+                plane.Draw(spriteBatch, gameTime);
+                spriteBatch.Draw(bigScreen, Vector2.Zero, null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
+            spriteBatch.End();
 
             // TODO: Add your drawing code here
 
@@ -248,7 +255,8 @@ namespace LD32_OSTGame
             Random rand = new Random(DateTime.Now.Millisecond);
             
             //make rocks
-            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, graphics.GraphicsDevice.Viewport.Width), rand.Next(0, graphics.GraphicsDevice.Viewport.Height)), 1, new Vector2((float)rand.Next(-100,100),(float)rand.Next(-100,100)),(float)rand.Next(-100,100)/100.0f);
+            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, bigScreen.Width), rand.Next(0, bigScreen.Height)), 1,
+                new Vector2((float)rand.Next(-100, 100), (float)rand.Next(-100, 100)), (float)rand.Next(-100, 100) / 100.0f);
 
             Entites.Add(ball);
         }
