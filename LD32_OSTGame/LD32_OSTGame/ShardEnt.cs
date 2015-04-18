@@ -29,7 +29,7 @@ namespace LD32_OSTGame
 
         public override void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
+            Position += Velocity;
         }
     }
 }

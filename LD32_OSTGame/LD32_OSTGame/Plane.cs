@@ -7,15 +7,7 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
-    public enum Direction
-    {
-        Up, Down, Left, Right
-    }
-
-    public enum SwitchDirection
-    {
-        Left, Right
-    }
+   
 
     public class Plane : Entity
     {
@@ -41,37 +33,6 @@ namespace LD32_OSTGame
 
             PowerUps = new List<PowerUp>();
             PowerUps.Add(new Shard());
-        }
-
-        public void Thrust(Direction dirToMove)
-        {
-            var thrustPower = new Vector2(0.0f, -0.05f);
-            var newVector = RotateVector2(thrustPower, Rotation);
-            
-            Velocity += newVector;
-            
-        }
-
-        public Vector2 RotateVector2(Vector2 vector, float n)
-        {
-            double rx = (vector.X * Math.Cos(n)) - (vector.Y * Math.Sin(n));
-            double ry = (vector.X * Math.Sin(n)) + (vector.Y * Math.Cos(n));
-            return new Vector2( (float) rx,  (float) ry);
-        }
-
-        // Rotate is in radians
-        public void Rotate(Direction dirToRotate)
-        {
-            if (dirToRotate == Direction.Left)
-            {
-                Rotation -= 0.1f;
-            }
-            if (dirToRotate == Direction.Right)
-            {
-                Rotation += 0.1f;
-            }
-
-            Console.WriteLine(Rotation);
         }
 
         public void Fire()
