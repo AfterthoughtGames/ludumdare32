@@ -214,6 +214,8 @@ namespace LD32_OSTGame
             spriteBatch.Begin();
  
             plane.Draw(spriteBatch, gameTime);
+
+            drawEntities(spriteBatch, gameTime);
  
             spriteBatch.End();
 
@@ -221,6 +223,14 @@ namespace LD32_OSTGame
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        private void drawEntities(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach(Entity ent in Entites)
+            {
+                ent.Draw(gameTime, spriteBatch);
+            }
         }
 
         private void populateEntities()
