@@ -10,7 +10,7 @@ namespace LD32_OSTGame
     //Base Entity becasue Matt and I wanted it
     public class Entity
     {
-        public PhysicsBody Body { get; set; }
+        public Rectangle Body { get; set; }
 
         protected Texture2D image { get; set; }
         protected Vector2 Position { get; set; }
@@ -22,6 +22,11 @@ namespace LD32_OSTGame
         public virtual void Collided(Entity collidedWith)
         {
             //make this do things
+        }
+
+        public virtual bool CheckCollsion(Entity checkCollide)
+        {
+            return Body.Intersects(checkCollide.Body);
         }
     }
 }

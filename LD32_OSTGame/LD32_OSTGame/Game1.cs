@@ -168,7 +168,30 @@ namespace LD32_OSTGame
 
             if(LimitedUpdateTime == null || DateTime.Now.Ticks > (LimitedUpdateTime.AddMilliseconds(limitDelay)).Ticks)
             {
+                // physiscs
+                // plane check
+                foreach(Entity currentEnt in Entites)
+                {
+                    if(plane.CheckCollsion(currentEnt))
+                    {
+                        plane.Collided(currentEnt);
+                        currentEnt.Collided(plane);
+                    }
+                }
 
+                foreach(Entity outterEnt in Entites)
+                {
+                    foreach(Entity innerEnt in Entites)
+                    {
+                        if(outterEnt != innerEnt)
+                        {
+                            if(outterEnt.CheckCollsion(innerEnt))
+                            {
+                                outterEnt.Collided(innerEnt);
+                            }
+                        }
+                    }
+                }
             }
 
             base.Update(gameTime);
