@@ -66,7 +66,8 @@ namespace LD32_OSTGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            KeyboardState currentKeyboard = new KeyboardState();
+            #region Keyboard
+            KeyboardState currentKeyboard = Keyboard.GetState();
 
             if(currentKeyboard.IsKeyDown(Keys.W))
             {
@@ -102,7 +103,31 @@ namespace LD32_OSTGame
             {
 
             }
-            
+            #endregion
+
+            #region Gamepad
+            GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
+
+            if(currentPad.DPad.Up == ButtonState.Pressed)
+            {
+
+            }
+
+            if (currentPad.DPad.Down == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.DPad.Left == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.DPad.Right == ButtonState.Pressed)
+            {
+
+            }
+            #endregion
 
             base.Update(gameTime);
         }
