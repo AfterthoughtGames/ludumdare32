@@ -9,7 +9,7 @@ namespace LD32_OSTGame
     public class Plane : Entity
     {
 
-        protected float fireRate { get; set; }
+        protected float FireRate { get; set; }
 
         public Plane(Texture2D image) : base()
         {
