@@ -37,19 +37,13 @@ namespace LD32_OSTGame
 
         public void Move(Direction dirToMove)
         {
-            Velocity *= 1.2f;
+            
         }
 
         public void Rotate(Direction dirToRotate)
         {
-            if (dirToRotate == Direction.Left)
-            {
-
-            }
-            else if (dirToRotate == Direction.Right)
-            {
-                
-            }
+            if (dirToRotate == Direction.Left) Rotation -= 0.1f;
+            if (dirToRotate == Direction.Right) Rotation += 0.1f;
         }
 
         public void Fire()
@@ -66,5 +60,7 @@ namespace LD32_OSTGame
         {
             spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);
         }
+
+
     }
 }
