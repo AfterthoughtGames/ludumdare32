@@ -21,7 +21,7 @@ namespace LD32_OSTGame
     {
 
         protected float FireRate { get; set; }
-        public Matrix RotationMatrix = Matrix.Identity;
+        protected Vector2 origin;
 
         public Plane(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotation) : base()
         {
@@ -31,6 +31,8 @@ namespace LD32_OSTGame
             this.Scale = scale;
             this.Velocity = velocity;
             this.Rotation = rotation;
+
+            origin = new Vector2(image.Width / 2, image.Height / 2);
         }
 
         public void Move(Direction dirToMove)
@@ -42,7 +44,7 @@ namespace LD32_OSTGame
         {
             if (dirToRotate == Direction.Left)
             {
-                RotationMatrix = Matrix.CreateRotationY(Rotation);
+
             }
             else if (dirToRotate == Direction.Right)
             {
@@ -60,9 +62,9 @@ namespace LD32_OSTGame
             
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(image, new Vector2(400, 240), Color.White);
+            spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);
         }
     }
 }

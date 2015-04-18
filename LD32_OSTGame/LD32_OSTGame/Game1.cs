@@ -61,7 +61,7 @@ namespace LD32_OSTGame
             Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
-            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
+            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
         }
 
         /// <summary>
@@ -203,9 +203,13 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Black);
+            GraphicsDevice.Clear(Color.White);
 
-
+            spriteBatch.Begin();
+ 
+            plane.Draw(spriteBatch, gameTime);
+ 
+            spriteBatch.End();
 
 
             // TODO: Add your drawing code here
