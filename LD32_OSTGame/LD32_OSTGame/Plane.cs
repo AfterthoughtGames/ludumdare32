@@ -7,9 +7,14 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
-    public enum Direction
+    public static enum Direction
     {
         Up, Down, Left, Right
+    }
+
+    public static enum SwitchDirection
+    {
+        Left, Right
     }
 
     public class Plane : Entity
@@ -50,7 +55,7 @@ namespace LD32_OSTGame
             
         }
 
-        public void SwitchUpgrade()
+        public void SwitchUpgrade(SwitchDirection dir)
         {
             
         }
