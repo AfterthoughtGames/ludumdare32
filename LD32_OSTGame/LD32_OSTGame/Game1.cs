@@ -61,7 +61,7 @@ namespace LD32_OSTGame
             Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
-            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
+            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
         }
 
         /// <summary>
@@ -181,7 +181,11 @@ namespace LD32_OSTGame
         {
             GraphicsDevice.Clear(Color.Black);
 
-
+            spriteBatch.Begin();
+ 
+            plane.Draw(spriteBatch);
+ 
+            spriteBatch.End();
 
 
             // TODO: Add your drawing code here

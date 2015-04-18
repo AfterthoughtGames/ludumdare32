@@ -7,12 +7,12 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
-    public static enum Direction
+    public enum Direction
     {
         Up, Down, Left, Right
     }
 
-    public static enum SwitchDirection
+    public enum SwitchDirection
     {
         Left, Right
     }
@@ -58,6 +58,11 @@ namespace LD32_OSTGame
         public void SwitchUpgrade(SwitchDirection dir)
         {
             
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(image, new Vector2(400, 240), Color.White);
         }
     }
 }
