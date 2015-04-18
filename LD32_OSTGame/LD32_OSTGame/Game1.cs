@@ -115,6 +115,10 @@ namespace LD32_OSTGame
         {
             GraphicsDevice.Clear(Color.Pink);
 
+            //var screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
+            //var textureCenter = new Vector2(Texture2D.Width / 2, Texture2D.Height / 2);
+            //            SpriteBatch.Draw(Texture2D, screenCenter, null, Color.White, 0f, textureCenter, 1f, SpriteEffects.None, 1f);
+
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

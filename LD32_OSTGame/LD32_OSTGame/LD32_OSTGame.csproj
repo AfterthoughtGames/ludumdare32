@@ -57,6 +57,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Powerup.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Entity.cs" />
