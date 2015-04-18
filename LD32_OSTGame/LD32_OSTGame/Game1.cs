@@ -15,12 +15,23 @@ namespace LD32_OSTGame
         MouseState PreviousMouse;
         GamePadState PreviousGamePad;
 
+        private Texture2D planeImg;
+        private Plane plane;
+
+        
+
         public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            planeImg = Content.Load<Texture2D>("plane");
+            var screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
+            var textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
+            var velocity = new Vector2(0.0f, 0.0f);
+            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
         }
+
 
         /// <summary>
         /// Allows the game to perform any initialization it needs to before starting to run.
@@ -115,9 +126,8 @@ namespace LD32_OSTGame
         {
             GraphicsDevice.Clear(Color.Pink);
 
-            //var screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
-            //var textureCenter = new Vector2(Texture2D.Width / 2, Texture2D.Height / 2);
-            //            SpriteBatch.Draw(Texture2D, screenCenter, null, Color.White, 0f, textureCenter, 1f, SpriteEffects.None, 1f);
+
+
 
             // TODO: Add your drawing code here
 
