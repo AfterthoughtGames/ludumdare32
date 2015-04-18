@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -15,12 +16,8 @@ namespace LD32_OSTGame
         MouseState PreviousMouse;
         GamePadState PreviousGamePad;
 
-        private Texture2D planeImg;
-        private Plane plane;
-
-        
-
-        public Game1()
+        List<Entity> Entites = new List<Entity>();        private Texture2D planeImg;
+        private Plane plane;        public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -77,7 +74,8 @@ namespace LD32_OSTGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            KeyboardState currentKeyboard = new KeyboardState();
+            #region Keyboard
+            KeyboardState currentKeyboard = Keyboard.GetState();
 
             if(currentKeyboard.IsKeyDown(Keys.W))
             {
@@ -113,7 +111,50 @@ namespace LD32_OSTGame
             {
 
             }
-            
+
+            PreviousKeyboard = currentKeyboard;
+            #endregion
+
+            #region Gamepad
+            GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
+
+            if(currentPad.DPad.Up == ButtonState.Pressed)
+            {
+
+            }
+
+            if (currentPad.DPad.Down == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.DPad.Left == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.DPad.Right == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.Buttons.A == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.Buttons.X == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.Buttons.Y == ButtonState.Pressed)
+            {
+
+            }
+
+            PreviousGamePad = currentPad;
+            #endregion
 
             base.Update(gameTime);
         }
