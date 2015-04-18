@@ -38,6 +38,9 @@ namespace LD32_OSTGame
             PlaneID = Guid.NewGuid();
 
             origin = new Vector2(image.Width / 2, image.Height / 2);
+
+            PowerUps = new List<PowerUp>();
+            PowerUps.Add(new Shard());
         }
 
         public void Thrust(Direction dirToMove)
