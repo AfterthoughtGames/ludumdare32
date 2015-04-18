@@ -26,5 +26,10 @@ namespace LD32_OSTGame
         {
             this.image = cm.Load<Texture2D>("thing");
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+        }
     }
 }
