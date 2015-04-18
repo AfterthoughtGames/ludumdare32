@@ -93,33 +93,45 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.A))
             {
+<<<<<<< HEAD
                 plane.Rotate(Direction.Left);
+=======
+                plane.Move(Direction.Down);
+>>>>>>> origin/Aaron-Projectile
             }
 
             if(currentKeyboard.IsKeyDown(Keys.D))
             {
+<<<<<<< HEAD
                 plane.Rotate(Direction.Right);
 
+=======
+                plane.Move(Direction.Left);
+>>>>>>> origin/Aaron-Projectile
             }
 
             if(currentKeyboard.IsKeyDown(Keys.S))
             {
+<<<<<<< HEAD
                 //nothing? you must turn and thrust in opposite direction
+=======
+                plane.Move(Direction.Right);
+>>>>>>> origin/Aaron-Projectile
             }
 
             if(currentKeyboard.IsKeyDown(Keys.Q))
             {
-
+                plane.SwitchUpgrade(SwitchDirection.Left);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.E))
             {
-
+                plane.SwitchUpgrade(SwitchDirection.Right);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.Space))
             {
-
+                plane.Fire();
             }
 
             PreviousKeyboard = currentKeyboard;
