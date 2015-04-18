@@ -21,7 +21,9 @@ namespace LD32_OSTGame
 
         public static List<Entity> Entites = new List<Entity>();        
         private Texture2D planeImg;
-        private Plane plane;        
+        private Plane plane;
+
+        private Texture2D Ball1;
         
         public Game1()
             : base()
@@ -57,11 +59,16 @@ namespace LD32_OSTGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //load Balls
+            Ball1 = Content.Load<Texture2D>("Ball1");
+
             planeImg = Content.Load<Texture2D>("plane");
             Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
             plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
+
+            populateEntities();
         }
 
         /// <summary>
@@ -188,6 +195,16 @@ namespace LD32_OSTGame
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        private void populateEntities()
+        {
+            Random rand = new Random(DateTime.Now.Millisecond);
+            
+            //make rocks
+            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, graphics.GraphicsDevice.Viewport.Width), rand.Next(0, graphics.GraphicsDevice.Viewport.Height)), 1, Vector2.Zero);
+
+            Entites.Add(ball);
         }
     }
 }
