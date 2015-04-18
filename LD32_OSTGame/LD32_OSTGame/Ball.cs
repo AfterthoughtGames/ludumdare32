@@ -22,9 +22,9 @@ namespace LD32_OSTGame
             origin = new Vector2(image.Width / 2, image.Height / 2);
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public override void Draw(GameTime gameTime, SpriteBatch batch)
         {
-            spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);
+            batch.Draw(image, Position, null, null, origin, Rotation, null, Color.White, SpriteEffects.None, 0);
         }
     }
 }
