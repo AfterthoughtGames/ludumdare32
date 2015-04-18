@@ -91,6 +91,7 @@
     <Content Include="Content\Ball1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\Shard.xnb" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
