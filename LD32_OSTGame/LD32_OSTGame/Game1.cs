@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,6 +15,8 @@ namespace LD32_OSTGame
         KeyboardState PreviousKeyboard;
         MouseState PreviousMouse;
         GamePadState PreviousGamePad;
+
+        List<Entity> Entites = new List<Entity>();
 
         public Game1()
             : base()
