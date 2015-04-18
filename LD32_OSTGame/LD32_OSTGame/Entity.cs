@@ -28,7 +28,7 @@ namespace LD32_OSTGame
         protected Vector2 Velocity { get; set; }
         protected float Rotation { get; set; }
         protected float Scale { get; set; }
-        protected int Health { get; set; }
+        public int Health { get; set; }
 
         public virtual void Collided(Entity collidedWith)
         {

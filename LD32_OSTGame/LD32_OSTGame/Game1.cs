@@ -25,6 +25,9 @@ namespace LD32_OSTGame
 
         private Texture2D Ball1;
         public static Texture2D ShardImg;
+
+        public static int ScreenWidth { get; set; }
+        public static int ScrrenHeight { get; set; }
         
         public Game1()
             : base()
@@ -55,6 +58,9 @@ namespace LD32_OSTGame
         /// </summary>
         protected override void LoadContent()
         {
+            Game1.ScreenWidth = this.GraphicsDevice.Viewport.Width;
+            Game1.ScrrenHeight = this.GraphicsDevice.Viewport.Height;
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -205,7 +211,16 @@ namespace LD32_OSTGame
             }
             plane.Update(gameTime);
 
-            base.Update(gameTime);
+            // cleanup entities 
+            for (int count = 0; count < Entites.Count; count++)
+            {
+                if(Entites[count].Health <= 0)
+                {
+                     Entites.RemoveAt(count);
+                }
+            }
+
+                base.Update(gameTime);
         }
 
         /// <summary>
