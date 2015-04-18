@@ -57,7 +57,7 @@ namespace LD32_OSTGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //planeImg = Content.Load<Texture2D>("plane");
+            planeImg = Content.Load<Texture2D>("plane");
             Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
