@@ -65,8 +65,7 @@ namespace LD32_OSTGame
         /// </summary>
         protected override void LoadContent()
         {
-            Game1.ScreenWidth = this.GraphicsDevice.Viewport.Width;
-            Game1.ScrrenHeight = this.GraphicsDevice.Viewport.Height;
+            
             
             DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
             Color[] data = new Color[80 * 30];
@@ -74,6 +73,9 @@ namespace LD32_OSTGame
             DebugBoxRect.SetData(data);
 
             bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+
+            Game1.ScreenWidth = bigScreen.Bounds.Width;
+            Game1.ScrrenHeight = bigScreen.Bounds.Height;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);

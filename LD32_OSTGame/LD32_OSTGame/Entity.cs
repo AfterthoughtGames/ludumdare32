@@ -94,7 +94,7 @@ namespace LD32_OSTGame
 
         public Rectangle ReturnNewBody()
         {
-            return new Rectangle((int)Position.X, (int)Position.Y, image.Width, image.Height);
+            return new Rectangle((int)Position.X  - (image.Width /2), (int)Position.Y - (image.Height / 2), image.Width, image.Height);
         }
          
     }
