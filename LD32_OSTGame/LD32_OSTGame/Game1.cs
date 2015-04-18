@@ -18,6 +18,9 @@ namespace LD32_OSTGame
         GamePadState PreviousGamePad;
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
+        public static int border = 360 * 2;
+
+        RenderTarget2D bigScreen;
 
         public static List<Entity> Entites = new List<Entity>();        
         private Texture2D planeImg;
@@ -37,6 +40,8 @@ namespace LD32_OSTGame
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
+            graphics.ApplyChanges();
+            
             Content.RootDirectory = "Content";
         }
 
@@ -68,6 +73,8 @@ namespace LD32_OSTGame
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
             DebugBoxRect.SetData(data);
 
+            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -76,7 +83,7 @@ namespace LD32_OSTGame
             ShardImg = Content.Load<Texture2D>("Shard");
 
             planeImg = Content.Load<Texture2D>("plane");
-            Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
+            Vector2 screenCenter = new Vector2(bigScreen.Width / 2, bigScreen.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
             plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
@@ -249,16 +256,23 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.SetRenderTarget(bigScreen);
+
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
- 
-            plane.Draw(spriteBatch, gameTime);
-
-            drawEntities(spriteBatch, gameTime);
- 
+                plane.Draw(spriteBatch, gameTime);
+                drawEntities(spriteBatch, gameTime);
             spriteBatch.End();
 
+            GraphicsDevice.SetRenderTarget(null);
+
+            GraphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
+                plane.Draw(spriteBatch, gameTime);
+                spriteBatch.Draw(bigScreen, new Vector2(-350,-350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
+            spriteBatch.End();
 
             // TODO: Add your drawing code here
 
@@ -278,7 +292,8 @@ namespace LD32_OSTGame
             Random rand = new Random(DateTime.Now.Millisecond);
             
             //make rocks
-            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, graphics.GraphicsDevice.Viewport.Width), rand.Next(0, graphics.GraphicsDevice.Viewport.Height)), 1, new Vector2((float)rand.Next(-100,100),(float)rand.Next(-100,100)),(float)rand.Next(-100,100)/100.0f);
+            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, bigScreen.Width), rand.Next(0, bigScreen.Height)), 1,
+                new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
             Entites.Add(ball);
         }

@@ -44,6 +44,26 @@ namespace LD32_OSTGame
             //move me
             Position += Velocity * gameTime.ElapsedGameTime.Milliseconds / 1000.0f;
 
+            if(Position.X < 0)
+            {
+                Position = new Vector2(1024 + Game1.border, Position.Y);
+            }
+
+            if (Position.X > 1024 + Game1.border)
+            {
+                Position = new Vector2(0, Position.Y);
+            }
+
+            if (Position.Y < 0)
+            {
+                Position = new Vector2(Position.X, 768 + Game1.border);
+            }
+
+            if (Position.Y > 768 + Game1.border)
+            {
+                Position = new Vector2(Position.X, 0);
+            }
+
             base.Update(gameTime);
         }
     }
