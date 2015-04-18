@@ -16,24 +16,33 @@ namespace LD32_OSTGame
     {
 
         protected float FireRate { get; set; }
+        public Matrix RotationMatrix = Matrix.Identity;
 
-        public Plane(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity) : base()
+        public Plane(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotation) : base()
         {
             this.image = image;
             this.Health = health;
             this.Position = position;
             this.Scale = scale;
             this.Velocity = velocity;
+            this.Rotation = rotation;
         }
 
         public void Move(Direction dirToMove)
         {
-            
+            Velocity *= 1.2f;
         }
 
-        public void Rotate(Direction dirToMove)
+        public void Rotate(Direction dirToRotate)
         {
-            
+            if (dirToRotate == Direction.Left)
+            {
+                RotationMatrix = Matrix.CreateRotationY(Rotation);
+            }
+            else if (dirToRotate == Direction.Right)
+            {
+                
+            }
         }
 
         public void Fire()
