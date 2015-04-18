@@ -35,6 +35,8 @@ namespace LD32_OSTGame
         public override void Draw(GameTime gameTime, SpriteBatch batch)
         {
             batch.Draw(image, Position, null, null, origin, Rotation, null, Color.White, SpriteEffects.None, 0);
+
+            base.Draw(gameTime, batch);
         }
 
         public override void Update(GameTime gameTime)
@@ -63,6 +65,8 @@ namespace LD32_OSTGame
             {
                 Position = new Vector2(Position.X, 0);
             }
+
+            this.Body = this.ReturnNewBody();
 
             base.Update(gameTime);
         }
