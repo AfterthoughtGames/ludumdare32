@@ -19,17 +19,19 @@ namespace LD32_OSTGame
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
 
-        List<Entity> Entites = new List<Entity>();        private Texture2D planeImg;
-        private Plane plane;        public Game1()
+        List<Entity> Entites = new List<Entity>();        
+        private Texture2D planeImg;
+        private Plane plane;        
+        
+        public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            planeImg = Content.Load<Texture2D>("plane");
-            var screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
-            var textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
-            var velocity = new Vector2(0.0f, 0.0f);
-            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
+            
+            
+           
+            
         }
 
 
@@ -55,7 +57,11 @@ namespace LD32_OSTGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            //planeImg = Content.Load<Texture2D>("plane");
+            Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);
+            Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
+            var velocity = new Vector2(0.0f, 0.0f);
+            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity);
         }
 
         /// <summary>
@@ -82,7 +88,7 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.W))
             {
-
+                plane.Move();
             }
 
             if(currentKeyboard.IsKeyDown(Keys.A))
@@ -159,7 +165,10 @@ namespace LD32_OSTGame
             PreviousGamePad = currentPad;
             #endregion
 
+            if(LimitedUpdateTime == null || DateTime.Now.Ticks > (LimitedUpdateTime.AddMilliseconds(limitDelay)).Ticks)
+            {
 
+            }
 
             base.Update(gameTime);
         }

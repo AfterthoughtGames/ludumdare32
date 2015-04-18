@@ -7,6 +7,11 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
+    public enum Direction
+    {
+        Up, Down, Left, Right
+    }
+
     public class Plane : Entity
     {
 
