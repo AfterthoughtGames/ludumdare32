@@ -103,6 +103,8 @@ namespace LD32_OSTGame
             {
 
             }
+
+            PreviousKeyboard = currentKeyboard;
             #endregion
 
             #region Gamepad
@@ -127,6 +129,23 @@ namespace LD32_OSTGame
             {
 
             }
+
+            if(currentPad.Buttons.A == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.Buttons.X == ButtonState.Pressed)
+            {
+
+            }
+
+            if(currentPad.Buttons.Y == ButtonState.Pressed)
+            {
+
+            }
+
+            PreviousGamePad = currentPad;
             #endregion
 
             base.Update(gameTime);
