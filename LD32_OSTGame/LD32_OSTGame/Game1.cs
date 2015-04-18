@@ -154,7 +154,10 @@ namespace LD32_OSTGame
             PreviousGamePad = currentPad;
             #endregion
 
+            if(LimitedUpdateTime == null || DateTime.Now.Ticks > (LimitedUpdateTime.AddMilliseconds(limitDelay)).Ticks)
+            {
 
+            }
 
             base.Update(gameTime);
         }
