@@ -7,9 +7,9 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
-    public class Ball : Entity
+    public class Powerup : Entity
     {
-        public Ball(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity) : base()
+        public Powerup(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity) : base()
         {
             this.image = image;
             this.Health = health;
