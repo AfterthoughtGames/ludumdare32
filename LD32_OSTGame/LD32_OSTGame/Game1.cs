@@ -19,6 +19,8 @@ namespace LD32_OSTGame
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
 
+        RenderTarget2D bigScreen;
+
         public static List<Entity> Entites = new List<Entity>();        
         private Texture2D planeImg;
         private Plane plane;
@@ -31,6 +33,8 @@ namespace LD32_OSTGame
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
+            graphics.ApplyChanges();
+            
             Content.RootDirectory = "Content";
         }
 
@@ -54,6 +58,9 @@ namespace LD32_OSTGame
         /// </summary>
         protected override void LoadContent()
         {
+
+            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + 360 * 2, graphics.PreferredBackBufferHeight + 360 * 2);
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
