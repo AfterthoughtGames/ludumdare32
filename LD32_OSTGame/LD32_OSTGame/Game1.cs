@@ -24,6 +24,7 @@ namespace LD32_OSTGame
         private Plane plane;
 
         private Texture2D Ball1;
+        public static Texture2D ShardImg;
         
         public Game1()
             : base()
@@ -59,6 +60,7 @@ namespace LD32_OSTGame
 
             //load Balls
             Ball1 = Content.Load<Texture2D>("Ball1");
+            ShardImg = Content.Load<Texture2D>("Shard");
 
             planeImg = Content.Load<Texture2D>("plane");
             Vector2 screenCenter = new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Height / 2);

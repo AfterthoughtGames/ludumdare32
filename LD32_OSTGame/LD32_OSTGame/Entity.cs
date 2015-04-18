@@ -55,6 +55,15 @@ namespace LD32_OSTGame
 
         }
 
+        public void Thrust(float power)
+        {
+            var thrustPower = new Vector2(0.0f, power);
+            var newVector = RotateVector2(thrustPower, Rotation);
+
+            Velocity += newVector;
+
+        }
+
         public Vector2 RotateVector2(Vector2 vector, float n)
         {
             double rx = (vector.X * Math.Cos(n)) - (vector.Y * Math.Sin(n));
