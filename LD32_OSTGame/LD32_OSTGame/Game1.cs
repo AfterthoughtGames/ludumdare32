@@ -30,10 +30,6 @@ namespace LD32_OSTGame
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            
-            
-           
-            
         }
 
 

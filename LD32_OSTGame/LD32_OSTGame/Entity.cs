@@ -28,5 +28,11 @@ namespace LD32_OSTGame
         {
             return Body.Intersects(checkCollide.Body);
         }
+
+        public virtual void Update(GameTime gameTime) { }
+
+        public virtual void Draw(GameTime gameTime, SpriteBatch batch) { }
+
+         
     }
 }

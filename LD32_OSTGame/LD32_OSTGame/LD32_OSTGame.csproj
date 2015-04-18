@@ -66,6 +66,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Razor.cs" />
+    <Compile Include="Shard.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.3.0.2141, Culture=neutral, processorArchitecture=MSIL">
