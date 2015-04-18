@@ -18,7 +18,7 @@ namespace LD32_OSTGame
         GamePadState PreviousGamePad;
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
-        public static int border = 360 * 2;
+        public static int border = 360;
 
         RenderTarget2D bigScreen;
 
@@ -272,7 +272,7 @@ namespace LD32_OSTGame
             Random rand = new Random(DateTime.Now.Millisecond);
             
             //make rocks
-            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, bigScreen.Width), rand.Next(0, bigScreen.Height)), 1,
+            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
                 new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
             Entites.Add(ball);
