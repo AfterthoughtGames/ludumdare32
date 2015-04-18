@@ -57,6 +57,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Plane.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Game1.cs" />
