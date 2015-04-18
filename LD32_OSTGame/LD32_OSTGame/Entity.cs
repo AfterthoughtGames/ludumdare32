@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework.Content;
 
 namespace LD32_OSTGame
 {
@@ -33,6 +34,7 @@ namespace LD32_OSTGame
 
         public virtual void Draw(GameTime gameTime, SpriteBatch batch) { }
 
+        public virtual void LoadContent(ContentManager cm) { }
          
     }
 }
