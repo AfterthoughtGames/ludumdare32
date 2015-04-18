@@ -35,9 +35,9 @@ namespace LD32_OSTGame
             origin = new Vector2(image.Width / 2, image.Height / 2);
         }
 
-        public void Move(Direction dirToMove)
+        public void Thrust(Direction dirToMove)
         {
-            
+            Velocity += new Vector2(0.05f,0.0f);
         }
 
         public void Rotate(Direction dirToRotate)
@@ -59,6 +59,11 @@ namespace LD32_OSTGame
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            Position += Velocity;
         }
 
 

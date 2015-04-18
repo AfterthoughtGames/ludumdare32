@@ -88,7 +88,7 @@ namespace LD32_OSTGame
 
             if(currentKeyboard.IsKeyDown(Keys.W))
             {
-                plane.Move(Direction.Up);
+                plane.Thrust(Direction.Up);
             }
 
             if(currentKeyboard.IsKeyDown(Keys.A))
@@ -193,6 +193,7 @@ namespace LD32_OSTGame
                     }
                 }
             }
+            plane.Update(gameTime);
 
             base.Update(gameTime);
         }
