@@ -42,7 +42,13 @@ namespace LD32_OSTGame
 
         public virtual void Update(GameTime gameTime) { }
 
-        public virtual void Draw(GameTime gameTime, SpriteBatch batch) { }
+        public virtual void Draw(GameTime gameTime, SpriteBatch batch) 
+        {
+            if (Game1.DebugMode == true)
+            {
+                batch.Draw(Game1.DebugBoxRect, this.Body, Color.White);
+            }  
+        }
 
         public virtual void LoadContent(ContentManager cm) { }
 

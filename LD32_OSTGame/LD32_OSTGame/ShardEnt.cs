@@ -57,6 +57,8 @@ namespace LD32_OSTGame
         public override void Draw(GameTime gameTime, SpriteBatch batch)
         {
             batch.Draw(image, this.Position, Color.White);
+
+            base.Draw(gameTime, batch);
         } 
     }
 }

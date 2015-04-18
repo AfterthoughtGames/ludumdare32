@@ -28,6 +28,8 @@ namespace LD32_OSTGame
 
         public static int ScreenWidth { get; set; }
         public static int ScrrenHeight { get; set; }
+        public static bool DebugMode { get; set; }
+        public static Texture2D DebugBoxRect { get; set; }
         
         public Game1()
             : base()
@@ -60,6 +62,11 @@ namespace LD32_OSTGame
         {
             Game1.ScreenWidth = this.GraphicsDevice.Viewport.Width;
             Game1.ScrrenHeight = this.GraphicsDevice.Viewport.Height;
+            
+            DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
+            Color[] data = new Color[80 * 30];
+            for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
+            DebugBoxRect.SetData(data);
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -133,6 +140,19 @@ namespace LD32_OSTGame
             if(currentKeyboard.IsKeyDown(Keys.Space))
             {
                 plane.Fire();
+            }
+
+            // util keys
+            if(currentKeyboard.IsKeyDown(Keys.F12))
+            {
+                if(Game1.DebugMode == true)
+                {
+                    Game1.DebugMode = false;
+                }
+                else
+                {
+                    Game1.DebugMode = true;
+                }
             }
 
             PreviousKeyboard = currentKeyboard;
