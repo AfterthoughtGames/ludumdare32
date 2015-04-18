@@ -61,6 +61,17 @@ namespace LD32_OSTGame
             }
         }
 
+        public override void Collided(Entity collidedWith)
+        {
+            if(collidedWith.GetType() == typeof(ShardEnt))
+            {
+                if(((ShardEnt)collidedWith).parrentID != this.PlaneID)
+                {
+                    this.Health--;
+                }
+            }
+        }
+
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);
@@ -69,6 +80,7 @@ namespace LD32_OSTGame
         public void Update(GameTime gameTime)
         {
             Position += Velocity;
+            this.Body = this.ReturnNewBody();
         }
 
 

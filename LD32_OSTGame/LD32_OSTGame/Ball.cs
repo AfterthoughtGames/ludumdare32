@@ -24,6 +24,14 @@ namespace LD32_OSTGame
             origin = new Vector2(image.Width / 2, image.Height / 2);
         }
 
+        public override void Collided(Entity collidedWith)
+        {
+            if(collidedWith.GetType() == typeof(ShardEnt))
+            {
+                this.Health--;
+            }
+        }
+
         public override void Draw(GameTime gameTime, SpriteBatch batch)
         {
             batch.Draw(image, Position, null, null, origin, Rotation, null, Color.White, SpriteEffects.None, 0);

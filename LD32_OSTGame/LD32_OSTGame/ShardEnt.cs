@@ -25,6 +25,8 @@ namespace LD32_OSTGame
             this.image = img;
             this.Health = 1;
 
+            this.Body = new Rectangle((int)pos.X, (int)pos.Y, img.Width, img.Height);
+
             this.Thrust(-1.5f);
         }
 
@@ -33,9 +35,21 @@ namespace LD32_OSTGame
             this.image = cm.Load<Texture2D>("Shard");
         }
 
+        public override void Collided(Entity collidedWith)
+        {
+            if(collidedWith.GetType() == typeof(Plane))
+            {
+                if(((Plane)collidedWith).PlaneID != this.parrentID)
+                {
+                    this.Health--;
+                }
+            }
+        }
+
         public override void Update(GameTime gameTime)
         {
             Position += Velocity;
+            this.Body = this.ReturnNewBody();
 
             if (Position.X < 0 || Position.X > Game1.ScreenWidth || Position.Y < 0 || Position.Y > Game1.ScrrenHeight) this.Health = 0;
         }

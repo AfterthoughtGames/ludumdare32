@@ -85,6 +85,11 @@ namespace LD32_OSTGame
 
             Console.WriteLine(Rotation);
         }
+
+        public Rectangle ReturnNewBody()
+        {
+            return new Rectangle((int)Position.X, (int)Position.Y, image.Width, image.Height);
+        }
          
     }
 }
