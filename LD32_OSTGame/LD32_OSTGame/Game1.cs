@@ -372,6 +372,9 @@ namespace LD32_OSTGame
                 if (currentKeyboard.IsKeyDown(Keys.Space))
                 {
                     ActiveSplash = false;
+                    Entites.Clear();
+                    BallCount = 0;
+                    Particles.Clear();
                 }
                 PreviousKeyboard = currentKeyboard;
 
