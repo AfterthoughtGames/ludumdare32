@@ -53,6 +53,11 @@ namespace LD32_OSTGame
         public static Texture2D Plane3Img { get; set; }
         public static Texture2D Plane4Img { get; set; }
 
+        private Texture2D SplashImg { get; set; }
+
+        public static bool ActiveSplash = true;
+        public static bool ActivePlay = false;
+
         public static int  BallCount = 0;
         
         public Game1()
@@ -114,15 +119,12 @@ namespace LD32_OSTGame
             Plane3Img = Content.Load<Texture2D>("plane3");
             Plane4Img = Content.Load<Texture2D>("plane4");
             razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
-            Vector2 screenCenter = new Vector2(bigScreen.Width / 2, bigScreen.Height / 2);
+            SplashImg = Content.Load<Texture2D>("splash768");
+            
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
-            var velocity = new Vector2(0.0f, 0.0f);
+            
             var razorStart = new Vector2(500.0f, 500.0f);
-            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
-
-            razor = new Razor(razorImg, razorStart, 1.0f, 0.0f);
-
-            Score = 0;
+            
 
             // Audio
             Pew = Content.Load<SoundEffect>("pew2");
@@ -148,209 +150,211 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if(BallCount == 0)
+            if (ActivePlay == true)
             {
-                populateEntities();
-            }
-
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            #region Keyboard
-            KeyboardState currentKeyboard = Keyboard.GetState();
-
-            if(currentKeyboard.IsKeyDown(Keys.W))
-            {
-                plane.Thrust(Direction.Up);
-            }
-
-            if(currentKeyboard.IsKeyDown(Keys.A))
-            {
-                plane.Rotate(Direction.Left);
-            }
-
-            if(currentKeyboard.IsKeyDown(Keys.D))
-            {
-                plane.Rotate(Direction.Right);
-
-            }
-
-            if(currentKeyboard.IsKeyDown(Keys.S))
-            {
-                //nothing? you must turn and thrust in opposite direction
-            }
-
-            if(currentKeyboard.IsKeyDown(Keys.Q))
-            {
-                plane.SwitchUpgrade(SwitchDirection.Left);
-            }
-
-            if(currentKeyboard.IsKeyDown(Keys.E))
-            {
-                plane.SwitchUpgrade(SwitchDirection.Right);
-            }
-
-            if(currentKeyboard.IsKeyDown(Keys.Space))
-            {
-                plane.Fire(gameTime);
-            }
-
-            // util keys
-            if(currentKeyboard.IsKeyDown(Keys.F12) && !PreviousKeyboard.IsKeyDown(Keys.F12))
-            {
-                if(Game1.DebugMode == true)
+                if (BallCount == 0)
                 {
-                    Game1.DebugMode = false;
-                }
-                else
-                {
-                    Game1.DebugMode = true;
-                }
-            }
-
-            if (currentKeyboard.IsKeyDown(Keys.F11) && !PreviousKeyboard.IsKeyDown(Keys.F11))
-            {
-                if(resolutionOption <= 3)
-                {
-                    resolutionOption++;
-                }
-                else
-                {
-                    resolutionOption = 0;
+                    populateEntities();
                 }
 
-                switch (resolutionOption)
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                    Exit();
+
+                #region Keyboard
+                KeyboardState currentKeyboard = Keyboard.GetState();
+
+                if (currentKeyboard.IsKeyDown(Keys.W))
                 {
-                    case 1:
-                        graphics.PreferredBackBufferWidth = 1280;
-                        graphics.PreferredBackBufferHeight = 720;
-                        graphics.ToggleFullScreen();
-                        graphics.ApplyChanges();
-                        break;
-                    case 2:
-                        graphics.PreferredBackBufferWidth = 1920;
-                        graphics.PreferredBackBufferHeight = 1080;
-                        graphics.ApplyChanges();
-                        break;
-                    case 3:
-                        graphics.PreferredBackBufferWidth = 1024;
-                        graphics.PreferredBackBufferHeight = 768;
-                        graphics.ApplyChanges();
-                        break;
-                    case 0:
-                        graphics.PreferredBackBufferWidth = 1024;
-                        graphics.PreferredBackBufferHeight = 768;
-                        graphics.ToggleFullScreen();
-                        graphics.ApplyChanges();
-                        break;
-                    default:
-                        break;
+                    plane.Thrust(Direction.Up);
                 }
-            }
 
-            PreviousKeyboard = currentKeyboard;
-            #endregion
-
-            #region Gamepad
-            GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
-
-            if(currentPad.DPad.Up == ButtonState.Pressed)
-            {
-                plane.Thrust(Direction.Up);
-            }
-
-            if (currentPad.DPad.Down == ButtonState.Pressed)
-            {
-                plane.Rotate(Direction.Down);
-            }
-
-            if(currentPad.DPad.Left == ButtonState.Pressed)
-            {
-                plane.Rotate(Direction.Left);
-            }
-
-            if(currentPad.DPad.Right == ButtonState.Pressed)
-            {
-                plane.Rotate(Direction.Right);
-            }
-
-            if(currentPad.Buttons.A == ButtonState.Pressed)
-            {
-                plane.Fire(gameTime);
-            }
-
-            if(currentPad.Buttons.X == ButtonState.Pressed)
-            {
-                plane.SwitchUpgrade(SwitchDirection.Left);
-            }
-
-            if(currentPad.Buttons.Y == ButtonState.Pressed)
-            {
-                plane.SwitchUpgrade(SwitchDirection.Right);
-            }
-
-            if(currentPad.ThumbSticks.Left.X < 0)
-            {
-                plane.Rotate(Direction.Left);
-            }
-
-            if (currentPad.ThumbSticks.Left.X > 0)
-            {
-                plane.Rotate(Direction.Right);
-            }
-
-            if (currentPad.ThumbSticks.Left.Y > 0)
-            {
-                plane.Thrust(Direction.Up);
-            }
-
-            PreviousGamePad = currentPad;
-            #endregion
-
-            if(LimitedUpdateTime == null || DateTime.Now.Ticks > (LimitedUpdateTime.AddMilliseconds(limitDelay)).Ticks)
-            {
-                // physiscs
-                // plane check
-                foreach(Entity currentEnt in Entites)
+                if (currentKeyboard.IsKeyDown(Keys.A))
                 {
-                    //update loop here too
-                    currentEnt.Update(gameTime);
+                    plane.Rotate(Direction.Left);
+                }
 
-                    if(plane.CheckCollsion(currentEnt))
+                if (currentKeyboard.IsKeyDown(Keys.D))
+                {
+                    plane.Rotate(Direction.Right);
+
+                }
+
+                if (currentKeyboard.IsKeyDown(Keys.S))
+                {
+                    //nothing? you must turn and thrust in opposite direction
+                }
+
+                if (currentKeyboard.IsKeyDown(Keys.Q))
+                {
+                    plane.SwitchUpgrade(SwitchDirection.Left);
+                }
+
+                if (currentKeyboard.IsKeyDown(Keys.E))
+                {
+                    plane.SwitchUpgrade(SwitchDirection.Right);
+                }
+
+                if (currentKeyboard.IsKeyDown(Keys.Space))
+                {
+                    plane.Fire(gameTime);
+                }
+
+                // util keys
+                if (currentKeyboard.IsKeyDown(Keys.F12) && !PreviousKeyboard.IsKeyDown(Keys.F12))
+                {
+                    if (Game1.DebugMode == true)
                     {
-                        plane.Collided(currentEnt);
-                        currentEnt.Collided(plane);
+                        Game1.DebugMode = false;
+                    }
+                    else
+                    {
+                        Game1.DebugMode = true;
                     }
                 }
 
-                for(int outterIndex = 0; outterIndex < Entites.Count; outterIndex++)  //Entity outterEnt in Entites)
+                if (currentKeyboard.IsKeyDown(Keys.F11) && !PreviousKeyboard.IsKeyDown(Keys.F11))
                 {
-                    for(int innerCount = 0; innerCount < Entites.Count; innerCount++) //Entity innerEnt in Entites)
+                    if (resolutionOption <= 3)
                     {
-                        if(Entites[outterIndex] != Entites[innerCount])
+                        resolutionOption++;
+                    }
+                    else
+                    {
+                        resolutionOption = 0;
+                    }
+
+                    switch (resolutionOption)
+                    {
+                        case 1:
+                            graphics.PreferredBackBufferWidth = 1280;
+                            graphics.PreferredBackBufferHeight = 720;
+                            graphics.ToggleFullScreen();
+                            graphics.ApplyChanges();
+                            break;
+                        case 2:
+                            graphics.PreferredBackBufferWidth = 1920;
+                            graphics.PreferredBackBufferHeight = 1080;
+                            graphics.ApplyChanges();
+                            break;
+                        case 3:
+                            graphics.PreferredBackBufferWidth = 1024;
+                            graphics.PreferredBackBufferHeight = 768;
+                            graphics.ApplyChanges();
+                            break;
+                        case 0:
+                            graphics.PreferredBackBufferWidth = 1024;
+                            graphics.PreferredBackBufferHeight = 768;
+                            graphics.ToggleFullScreen();
+                            graphics.ApplyChanges();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                PreviousKeyboard = currentKeyboard;
+                #endregion
+
+                #region Gamepad
+                GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
+
+                if (currentPad.DPad.Up == ButtonState.Pressed)
+                {
+                    plane.Thrust(Direction.Up);
+                }
+
+                if (currentPad.DPad.Down == ButtonState.Pressed)
+                {
+                    plane.Rotate(Direction.Down);
+                }
+
+                if (currentPad.DPad.Left == ButtonState.Pressed)
+                {
+                    plane.Rotate(Direction.Left);
+                }
+
+                if (currentPad.DPad.Right == ButtonState.Pressed)
+                {
+                    plane.Rotate(Direction.Right);
+                }
+
+                if (currentPad.Buttons.A == ButtonState.Pressed)
+                {
+                    plane.Fire(gameTime);
+                }
+
+                if (currentPad.Buttons.X == ButtonState.Pressed)
+                {
+                    plane.SwitchUpgrade(SwitchDirection.Left);
+                }
+
+                if (currentPad.Buttons.Y == ButtonState.Pressed)
+                {
+                    plane.SwitchUpgrade(SwitchDirection.Right);
+                }
+
+                if (currentPad.ThumbSticks.Left.X < 0)
+                {
+                    plane.Rotate(Direction.Left);
+                }
+
+                if (currentPad.ThumbSticks.Left.X > 0)
+                {
+                    plane.Rotate(Direction.Right);
+                }
+
+                if (currentPad.ThumbSticks.Left.Y > 0)
+                {
+                    plane.Thrust(Direction.Up);
+                }
+
+                PreviousGamePad = currentPad;
+                #endregion
+
+                if (LimitedUpdateTime == null || DateTime.Now.Ticks > (LimitedUpdateTime.AddMilliseconds(limitDelay)).Ticks)
+                {
+                    // physiscs
+                    // plane check
+                    foreach (Entity currentEnt in Entites)
+                    {
+                        //update loop here too
+                        currentEnt.Update(gameTime);
+
+                        if (plane.CheckCollsion(currentEnt))
                         {
-                            if(Entites[outterIndex].CheckCollsion(Entites[innerCount]))
+                            plane.Collided(currentEnt);
+                            currentEnt.Collided(plane);
+                        }
+                    }
+
+                    for (int outterIndex = 0; outterIndex < Entites.Count; outterIndex++)  //Entity outterEnt in Entites)
+                    {
+                        for (int innerCount = 0; innerCount < Entites.Count; innerCount++) //Entity innerEnt in Entites)
+                        {
+                            if (Entites[outterIndex] != Entites[innerCount])
                             {
-                                Entites[outterIndex].Collided(Entites[innerCount]);
+                                if (Entites[outterIndex].CheckCollsion(Entites[innerCount]))
+                                {
+                                    Entites[outterIndex].Collided(Entites[innerCount]);
+                                }
                             }
                         }
                     }
                 }
-            }
-            plane.Update(gameTime);
+                plane.Update(gameTime);
 
-            foreach(Particle p in Particles)
-            {
-                p.Update(gameTime);
-            }
-
-            for (int i = 0; i < Particles.Count;i++ )
-            {
-                if(Particles[i].health <= 0)
+                foreach (Particle p in Particles)
                 {
-                    Particles.RemoveAt(i);
+                    p.Update(gameTime);
                 }
-            }
+
+                for (int i = 0; i < Particles.Count; i++)
+                {
+                    if (Particles[i].health <= 0)
+                    {
+                        Particles.RemoveAt(i);
+                    }
+                }
 
                 // cleanup entities 
                 for (int count = 0; count < Entites.Count; count++)
@@ -360,8 +364,31 @@ namespace LD32_OSTGame
                         Entites.RemoveAt(count);
                     }
                 }
+            }
 
-                base.Update(gameTime);
+            if (ActiveSplash == true)
+            {
+                KeyboardState currentKeyboard = Keyboard.GetState();
+                if (currentKeyboard.IsKeyDown(Keys.Space))
+                {
+                    ActiveSplash = false;
+                }
+                PreviousKeyboard = currentKeyboard;
+
+                GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
+                if (currentPad.Buttons.A == ButtonState.Pressed)
+                {
+                    ActiveSplash = false;
+                }
+                PreviousGamePad = currentPad;
+            }
+
+            if (ActiveSplash == false && ActivePlay == false)
+            {
+                SetupGame();
+            }
+
+            base.Update(gameTime);
         }
 
         /// <summary>
@@ -370,29 +397,36 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.SetRenderTarget(bigScreen);
+            if (ActivePlay == true)
+            {
+                GraphicsDevice.SetRenderTarget(bigScreen);
+                GraphicsDevice.Clear(Color.Black);
+                spriteBatch.Begin();
 
-            GraphicsDevice.Clear(Color.Black);
-
-            spriteBatch.Begin();
-                
                 drawEntities(spriteBatch, gameTime);
                 plane.Draw(spriteBatch, gameTime);
                 drawParticles(spriteBatch, gameTime);
                 //razor.Draw(gameTime, spriteBatch);
-            spriteBatch.End();
+                spriteBatch.End();
+                GraphicsDevice.SetRenderTarget(null);
 
-            GraphicsDevice.SetRenderTarget(null);
-
-            GraphicsDevice.Clear(Color.Black);
-
-            spriteBatch.Begin();
+                GraphicsDevice.Clear(Color.Black);
+                spriteBatch.Begin();
                 plane.Draw(spriteBatch, gameTime);
                 //razor.Draw(gameTime, spriteBatch);
-                spriteBatch.Draw(bigScreen, new Vector2(-350,-350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
+                spriteBatch.Draw(bigScreen, new Vector2(-350, -350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
                 spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);
-            spriteBatch.End();
+                spriteBatch.End();
+            }
+
+            if(ActiveSplash == true)
+            {
+                GraphicsDevice.Clear(Color.Black);
+                spriteBatch.Begin();
+                spriteBatch.Draw(SplashImg, Vector2.Zero, Color.White);
+                spriteBatch.End();
+            }
 
             // HACK: remove this once we can write text to the screen
             //this.Window.Title = Score.ToString();
@@ -431,7 +465,18 @@ namespace LD32_OSTGame
                 BallCount++;
             }
 
-            
+        }
+
+        private void SetupGame()
+        {
+            var velocity = new Vector2(0.0f, 0.0f);
+            Vector2 screenCenter = new Vector2(bigScreen.Width / 2, bigScreen.Height / 2);
+            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
+
+            Score = 0;
+
+            populateEntities();
+            ActivePlay = true;
         }
     }
 }
