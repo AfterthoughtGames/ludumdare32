@@ -196,7 +196,7 @@ namespace LD32_OSTGame
                     plane.SwitchUpgrade(SwitchDirection.Right);
                 }
 
-                if (currentKeyboard.IsKeyDown(Keys.Space))
+                if (currentKeyboard.IsKeyDown(Keys.Space) && !PreviousKeyboard.IsKeyDown(Keys.Space))
                 {
                     plane.Fire(gameTime);
                 }
@@ -280,7 +280,7 @@ namespace LD32_OSTGame
                     plane.Rotate(Direction.Right);
                 }
 
-                if (currentPad.Buttons.A == ButtonState.Pressed)
+                if (currentPad.Buttons.A == ButtonState.Pressed && PreviousGamePad.Buttons.A != ButtonState.Pressed)
                 {
                     plane.Fire(gameTime);
                 }
