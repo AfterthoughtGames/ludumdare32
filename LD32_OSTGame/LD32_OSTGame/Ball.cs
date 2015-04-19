@@ -40,7 +40,7 @@ namespace LD32_OSTGame
 
                     Game1.Score++;
 
-                    Game1.Entites.Add(new Razor(Game1.razorImg, Position, 1, 1));
+                    //Game1.Entites.Add(new Razor(Game1.razorImg, Position, 1, 1));
 
                     //should probably do some sort of health check???
                     Game1.BallCount--;

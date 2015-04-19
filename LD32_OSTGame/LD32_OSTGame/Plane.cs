@@ -142,7 +142,7 @@ namespace LD32_OSTGame
             spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.Wheat ,SpriteEffects.None, 0);
             //spriteBatch.Draw(image, Position, null, null, origin, Rotation, null, 
                // new Color(236f, 249f, 155f), SpriteEffects.None, 0);
-            spriteBatch.DrawString(Game1.GUIFont, "Razor: " + HasRazor.ToString(), new Vector2(100, 100), Color.Red);
+            //spriteBatch.DrawString(Game1.GUIFont, "Razor: " + HasRazor.ToString(), new Vector2(100, 100), Color.Red);
             base.Draw(gameTime, spriteBatch);
         }
 
