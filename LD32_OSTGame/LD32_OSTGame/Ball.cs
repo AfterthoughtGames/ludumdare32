@@ -35,6 +35,8 @@ namespace LD32_OSTGame
 
                 if (this.Health == 0)
                 {
+                    Game1.Score++;
+
                     //should probably do some sort of health check???
                     Game1.BallCount--;
 

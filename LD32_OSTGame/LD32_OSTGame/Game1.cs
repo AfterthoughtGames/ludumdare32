@@ -37,6 +37,7 @@ namespace LD32_OSTGame
         public static int ActualScreenHeight { get; set; }
         public static bool DebugMode { get; set; }
         public static Texture2D DebugBoxRect { get; set; }
+        public static int Score { get; set; }
 
         public static int  BallCount = 0;
         
@@ -97,6 +98,8 @@ namespace LD32_OSTGame
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
             plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
+
+            Score = 0;
 
             //populateEntities();
         }
@@ -345,7 +348,8 @@ namespace LD32_OSTGame
                 spriteBatch.Draw(bigScreen, new Vector2(-350,-350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
             spriteBatch.End();
 
-            // TODO: Add your drawing code here
+            // HACK: remove this once we can write text to the screen
+            this.Window.Title = Score.ToString();
 
             base.Draw(gameTime);
         }
