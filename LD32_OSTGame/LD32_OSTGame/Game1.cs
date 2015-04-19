@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LD32_OSTGame
 {
@@ -31,6 +32,9 @@ namespace LD32_OSTGame
         private Texture2D Ball1;
         public static Texture2D ShardImg;
         private SpriteFont GUIFont;
+        public static SoundEffect Pew;
+        public static SoundEffect Hit;
+        public static SoundEffect Rip;
 
         public static int ScreenWidth { get; set; }
         public static int ScrrenHeight { get; set; }
@@ -103,6 +107,11 @@ namespace LD32_OSTGame
             plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
 
             Score = 0;
+
+            // Audio
+            Pew = Content.Load<SoundEffect>("pew2");
+            Hit = Content.Load<SoundEffect>("hit");
+            Rip = Content.Load<SoundEffect>("rip");
 
             //populateEntities();
         }

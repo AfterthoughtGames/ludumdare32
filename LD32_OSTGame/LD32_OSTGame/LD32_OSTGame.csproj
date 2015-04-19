@@ -88,7 +88,12 @@
     <Content Include="RawContent\Ball2_Med.png" />
     <Content Include="RawContent\Ball2_Med2.png" />
     <Content Include="RawContent\Ball2_Small.png" />
+    <Content Include="RawContent\hit.wav" />
+    <Content Include="RawContent\pew.wav" />
+    <Content Include="RawContent\pew2.wav" />
+    <Content Include="RawContent\pew3.wav" />
     <Content Include="RawContent\plane.png" />
+    <Content Include="RawContent\rip.wav" />
     <Content Include="RawContent\Shard.png" />
     <Content Include="RawContent\splash1080.png" />
     <Content Include="RawContent\splash720.png" />
@@ -129,6 +134,21 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Content\GUIFont.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\hit.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\pew.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\pew2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\pew3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\rip.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

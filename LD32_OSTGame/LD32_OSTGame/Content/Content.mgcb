@@ -134,3 +134,33 @@
 /processorParam:TextureFormat=Color
 /build:../RawContent/HappyRazorBladePickup.png
 
+#begin ../RawContent/pew.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../RawContent/pew.wav
+
+#begin ../RawContent/hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../RawContent/hit.wav
+
+#begin ../RawContent/rip.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../RawContent/rip.wav
+
+#begin ../RawContent/pew2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../RawContent/pew2.wav
+
+#begin ../RawContent/pew3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../RawContent/pew3.wav
+

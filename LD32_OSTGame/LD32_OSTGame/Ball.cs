@@ -32,9 +32,12 @@ namespace LD32_OSTGame
             if(collidedWith.GetType() == typeof(ShardEnt))
             {
                 this.Health--;
+                Game1.Hit.Play();
 
                 if (this.Health == 0)
                 {
+                    Game1.Rip.Play();
+
                     Game1.Score++;
 
                     //should probably do some sort of health check???

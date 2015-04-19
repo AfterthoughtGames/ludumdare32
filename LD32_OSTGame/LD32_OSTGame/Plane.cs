@@ -42,6 +42,8 @@ namespace LD32_OSTGame
         {
             if(PowerUps[PowerSlotIndex].GetType() == typeof(Shard))
             {
+                Game1.Pew.Play();
+
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
                     Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg, (float)rand.NextDouble()));
