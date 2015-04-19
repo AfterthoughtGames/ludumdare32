@@ -55,7 +55,9 @@ namespace LD32_OSTGame
 
               if (PowerUps[PowerSlotIndex].GetType() == typeof(Kitten))
             {
-                Game1.Pew.Play();
+                Game1.CatSound.Play();
+
+                PowerUps[PowerSlotIndex].AmmoCount--;
 
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
