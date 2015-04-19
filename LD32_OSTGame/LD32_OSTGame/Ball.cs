@@ -84,7 +84,7 @@ namespace LD32_OSTGame
                                 }
                                 else
                                 {
-                                    Game1.Entites.Add(new Razor(Game1.razorImg, this.Position, 1, 0));
+                                    Game1.Entites.Add(new Razor(Game1.razorImg, this.Position, 1, 0, 10));
                                 }
                             }
 
@@ -148,7 +148,7 @@ namespace LD32_OSTGame
 
                             if (rndNum < 20)
                             {
-                                Game1.Entites.Add(new Razor(Game1.razorImg, this.Position, 1, 0));
+                                Game1.Entites.Add(new Razor(Game1.razorImg, this.Position, 1, 0, 10));
                             }
 
                             Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),

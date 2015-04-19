@@ -9,6 +9,8 @@ namespace LD32_OSTGame
 {
     public class PowerUp : Entity
     {
+        public int AmmoCount { get; set; }
+
         public override void Collided(Entity collidedWith)
         {
             if (collidedWith.GetType() == typeof(Plane))

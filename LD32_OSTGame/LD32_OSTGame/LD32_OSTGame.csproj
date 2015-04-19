@@ -92,6 +92,7 @@
     <Content Include="RawContent\Ball2_Med.png" />
     <Content Include="RawContent\Ball2_Med2.png" />
     <Content Include="RawContent\Ball2_Small.png" />
+    <Content Include="RawContent\cat.wav" />
     <Content Include="RawContent\hit.wav" />
     <Content Include="RawContent\pew.wav" />
     <Content Include="RawContent\pew2.wav" />
