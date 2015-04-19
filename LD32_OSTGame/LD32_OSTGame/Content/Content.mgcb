@@ -123,3 +123,9 @@
 /processorParam:TextureFormat=Color
 /build:../RawContent/Ball2_Small.png
 
+#begin ../RawContent/GUIFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:../RawContent/GUIFont.spritefont
+

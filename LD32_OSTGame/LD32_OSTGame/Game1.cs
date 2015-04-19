@@ -30,6 +30,7 @@ namespace LD32_OSTGame
 
         private Texture2D Ball1;
         public static Texture2D ShardImg;
+        private SpriteFont GUIFont;
 
         public static int ScreenWidth { get; set; }
         public static int ScrrenHeight { get; set; }
@@ -80,6 +81,8 @@ namespace LD32_OSTGame
             DebugBoxRect.SetData(data);
 
             bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+
+            GUIFont = Content.Load<SpriteFont>("GUIFont");
 
             Game1.ScreenWidth = bigScreen.Bounds.Width;
             Game1.ScrrenHeight = bigScreen.Bounds.Height;
@@ -346,6 +349,7 @@ namespace LD32_OSTGame
             spriteBatch.Begin();
                 plane.Draw(spriteBatch, gameTime);
                 spriteBatch.Draw(bigScreen, new Vector2(-350,-350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
+                spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
             spriteBatch.End();
 
             // HACK: remove this once we can write text to the screen
