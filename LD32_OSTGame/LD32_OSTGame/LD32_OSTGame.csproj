@@ -57,6 +57,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Particle.cs" />
     <Compile Include="Powerup.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Ball.cs" />
@@ -104,7 +105,9 @@
     <Content Include="RawContent\splash768.png" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <MonoGameContentReference Include="Content\Content.mgcb">
+      <SubType>Designer</SubType>
+    </MonoGameContentReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\plane.xnb">
@@ -143,6 +146,9 @@
     <None Include="Content\hit.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\Particle1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Content\pew.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

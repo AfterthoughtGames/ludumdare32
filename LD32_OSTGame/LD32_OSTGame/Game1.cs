@@ -18,12 +18,14 @@ namespace LD32_OSTGame
         MouseState PreviousMouse;
         GamePadState PreviousGamePad;
         DateTime LimitedUpdateTime;
+
         int limitDelay = 50;
         public static int border = 350;
 
         RenderTarget2D bigScreen;
 
-        public static List<Entity> Entites = new List<Entity>();        
+        public static List<Entity> Entites = new List<Entity>();
+        public static List<Particle> Particles = new List<Particle>(); 
         private Texture2D planeImg;
         private Plane plane;
         private Texture2D razorImg;
@@ -33,6 +35,7 @@ namespace LD32_OSTGame
 
         private Texture2D Ball1;
         public static Texture2D ShardImg;
+        public static Texture2D Particle1;
         private SpriteFont GUIFont;
         public static SoundEffect Pew;
         public static SoundEffect Hit;
@@ -103,6 +106,8 @@ namespace LD32_OSTGame
             //load Balls
             Ball1 = Content.Load<Texture2D>("Ball1");
             ShardImg = Content.Load<Texture2D>("Shard");
+
+            Particle1 = Content.Load<Texture2D>("Particle1");
 
             planeImg = Content.Load<Texture2D>("plane");
             Plane2Img = Content.Load<Texture2D>("plane2");
@@ -334,14 +339,27 @@ namespace LD32_OSTGame
             }
             plane.Update(gameTime);
 
-            // cleanup entities 
-            for (int count = 0; count < Entites.Count; count++)
+            foreach(Particle p in Particles)
             {
-                if(Entites[count].Health <= 0)
+                p.Update(gameTime);
+            }
+
+            for (int i = 0; i < Particles.Count;i++ )
+            {
+                if(Particles[i].health <= 0)
                 {
-                     Entites.RemoveAt(count);
+                    Particles.RemoveAt(i);
                 }
             }
+
+                // cleanup entities 
+                for (int count = 0; count < Entites.Count; count++)
+                {
+                    if (Entites[count].Health <= 0)
+                    {
+                        Entites.RemoveAt(count);
+                    }
+                }
 
                 base.Update(gameTime);
         }
@@ -360,6 +378,7 @@ namespace LD32_OSTGame
                 
                 drawEntities(spriteBatch, gameTime);
                 plane.Draw(spriteBatch, gameTime);
+                drawParticles(spriteBatch, gameTime);
                 //razor.Draw(gameTime, spriteBatch);
             spriteBatch.End();
 
@@ -386,6 +405,14 @@ namespace LD32_OSTGame
             foreach(Entity ent in Entites)
             {
                 ent.Draw(gameTime, spriteBatch);
+            }
+        }
+
+        private void drawParticles(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (Particle p in Particles)
+            {
+                p.Draw(gameTime, spriteBatch);
             }
         }
 
