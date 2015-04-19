@@ -59,6 +59,7 @@ namespace LD32_OSTGame
 
                 PowerUps[PowerSlotIndex].AmmoCount--;
 
+                PowerUps[PowerSlotIndex].AmmoCount--;
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
                     Game1.Entites.Add(new KittenEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.KittenBullet, (float)rand.NextDouble()));
