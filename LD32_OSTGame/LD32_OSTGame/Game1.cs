@@ -266,15 +266,15 @@ namespace LD32_OSTGame
                     }
                 }
 
-                foreach(Entity outterEnt in Entites)
+                for(int outterIndex = 0; outterIndex < Entites.Count; outterIndex++)  //Entity outterEnt in Entites)
                 {
-                    foreach(Entity innerEnt in Entites)
+                    for(int innerCount = 0; innerCount < Entites.Count; innerCount++) //Entity innerEnt in Entites)
                     {
-                        if(outterEnt != innerEnt)
+                        if(Entites[outterIndex] != Entites[innerCount])
                         {
-                            if(outterEnt.CheckCollsion(innerEnt))
+                            if(Entites[outterIndex].CheckCollsion(Entites[innerCount]))
                             {
-                                outterEnt.Collided(innerEnt);
+                                Entites[outterIndex].Collided(Entites[innerCount]);
                             }
                         }
                     }
