@@ -26,6 +26,8 @@ namespace LD32_OSTGame
         public static List<Entity> Entites = new List<Entity>();        
         private Texture2D planeImg;
         private Plane plane;
+        private Texture2D razorImg;
+        private Razor razor;
 
         private int resolutionOption = 0;
 
@@ -37,7 +39,7 @@ namespace LD32_OSTGame
         public static SoundEffect Rip;
 
         public static int ScreenWidth { get; set; }
-        public static int ScrrenHeight { get; set; }
+        public static int ScreenHeight { get; set; }
         public static int ActualScreenWidth { get; set; }
         public static int ActualScreenHeight { get; set; }
         public static bool DebugMode { get; set; }
@@ -89,7 +91,7 @@ namespace LD32_OSTGame
             GUIFont = Content.Load<SpriteFont>("GUIFont");
 
             Game1.ScreenWidth = bigScreen.Bounds.Width;
-            Game1.ScrrenHeight = bigScreen.Bounds.Height;
+            Game1.ScreenHeight = bigScreen.Bounds.Height;
             ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
             ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
 
@@ -101,10 +103,14 @@ namespace LD32_OSTGame
             ShardImg = Content.Load<Texture2D>("Shard");
 
             planeImg = Content.Load<Texture2D>("plane");
+            razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
             Vector2 screenCenter = new Vector2(bigScreen.Width / 2, bigScreen.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             var velocity = new Vector2(0.0f, 0.0f);
+            var razorStart = new Vector2(500.0f, 500.0f);
             plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
+
+            razor = new Razor(razorImg, razorStart, 1.0f, 0.0f);
 
             Score = 0;
 
@@ -349,6 +355,7 @@ namespace LD32_OSTGame
                 
                 drawEntities(spriteBatch, gameTime);
                 plane.Draw(spriteBatch, gameTime);
+                //razor.Draw(gameTime, spriteBatch);
             spriteBatch.End();
 
             GraphicsDevice.SetRenderTarget(null);
@@ -357,6 +364,7 @@ namespace LD32_OSTGame
 
             spriteBatch.Begin();
                 plane.Draw(spriteBatch, gameTime);
+                //razor.Draw(gameTime, spriteBatch);
                 spriteBatch.Draw(bigScreen, new Vector2(-350,-350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
                 spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);

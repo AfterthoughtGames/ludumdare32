@@ -92,6 +92,7 @@
     <Content Include="RawContent\pew.wav" />
     <Content Include="RawContent\pew2.wav" />
     <Content Include="RawContent\pew3.wav" />
+    <Content Include="RawContent\HappyRazorBladePickup.png" />
     <Content Include="RawContent\plane.png" />
     <Content Include="RawContent\rip.wav" />
     <Content Include="RawContent\Shard.png" />
@@ -151,6 +152,9 @@
     <None Include="Content\rip.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\HappyRazorBladePickup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="RawContent\Ball1.xnb" />
     <Content Include="RawContent\GUIFont.spritefont" />
