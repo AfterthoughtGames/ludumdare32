@@ -160,6 +160,9 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
             if (ActivePlay == true)
             {
                 if (BallCount == 0)
@@ -167,8 +170,7 @@ namespace LD32_OSTGame
                     populateEntities();
                 }
 
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                    Exit();
+                
 
                 #region Keyboard
                 KeyboardState currentKeyboard = Keyboard.GetState();
