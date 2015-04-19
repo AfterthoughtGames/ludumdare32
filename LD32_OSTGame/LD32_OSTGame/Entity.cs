@@ -24,10 +24,10 @@ namespace LD32_OSTGame
         public Rectangle Body { get; set; }
 
         protected Texture2D image { get; set; }
-        protected Vector2 Position { get; set; }
-        protected Vector2 Velocity { get; set; }
+        public Vector2 Position { get; set; }
+        public Vector2 Velocity { get; set; }
         protected float Rotation { get; set; }
-        protected float Scale { get; set; }
+        public float Scale { get; set; }
         public int Health { get; set; }
 
         public virtual void Collided(Entity collidedWith)
