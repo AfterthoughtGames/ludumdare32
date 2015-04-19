@@ -33,6 +33,8 @@ namespace LD32_OSTGame
 
         public static int ScreenWidth { get; set; }
         public static int ScrrenHeight { get; set; }
+        public static int ActualScreenWidth { get; set; }
+        public static int ActualScreenHeight { get; set; }
         public static bool DebugMode { get; set; }
         public static Texture2D DebugBoxRect { get; set; }
         
@@ -78,6 +80,8 @@ namespace LD32_OSTGame
 
             Game1.ScreenWidth = bigScreen.Bounds.Width;
             Game1.ScrrenHeight = bigScreen.Bounds.Height;
+            ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
+            ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
