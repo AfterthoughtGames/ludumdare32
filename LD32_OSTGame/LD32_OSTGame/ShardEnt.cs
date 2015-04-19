@@ -9,6 +9,8 @@ namespace LD32_OSTGame
 {
     public class ShardEnt : Projectile
     {
+        float imageRotation;
+
         public ShardEnt(Texture2D img)
         {
             this.Damage = 1;
@@ -16,7 +18,7 @@ namespace LD32_OSTGame
             this.Health = 1;
         }
 
-        public ShardEnt(Vector2 vol, float roatation, Vector2 pos, Guid entID, Texture2D img)
+        public ShardEnt(Vector2 vol, float roatation, Vector2 pos, Guid entID, Texture2D img, float randomness)
         {
             this.Velocity = vol;
             this.Rotation = roatation;
@@ -24,6 +26,8 @@ namespace LD32_OSTGame
             this.parrentID = entID;
             this.image = img;
             this.Health = 1;
+            this.Scale = randomness;
+            this.imageRotation = 360f * randomness;
 
             this.Body = new Rectangle((int)pos.X, (int)pos.Y, img.Width, img.Height);
 
@@ -63,7 +67,7 @@ namespace LD32_OSTGame
 
         public override void Draw(GameTime gameTime, SpriteBatch batch)
         {
-            batch.Draw(image, this.Position, Color.White);
+            batch.Draw(image, this.Position,null,null,new Vector2(6,8),imageRotation,new Vector2(Scale),Color.White);
 
             base.Draw(gameTime, batch);
         } 
