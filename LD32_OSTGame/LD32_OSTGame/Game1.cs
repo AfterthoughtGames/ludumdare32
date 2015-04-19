@@ -37,6 +37,8 @@ namespace LD32_OSTGame
         public static int ActualScreenHeight { get; set; }
         public static bool DebugMode { get; set; }
         public static Texture2D DebugBoxRect { get; set; }
+
+        public static int  BallCount = 0;
         
         public Game1()
             : base()
@@ -96,7 +98,7 @@ namespace LD32_OSTGame
             var velocity = new Vector2(0.0f, 0.0f);
             plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
 
-            populateEntities();
+            //populateEntities();
         }
 
         /// <summary>
@@ -115,6 +117,11 @@ namespace LD32_OSTGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            if(BallCount == 0)
+            {
+                populateEntities();
+            }
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -355,10 +362,16 @@ namespace LD32_OSTGame
             Random rand = new Random(DateTime.Now.Millisecond);
             
             //make rocks
-            Ball ball = new Ball(Ball1, 20, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
-                new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
+            for (int i = 0; i < 4; i++)
+            {
+                Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
+                    new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
-            Entites.Add(ball);
+                Entites.Add(ball);
+                BallCount++;
+            }
+
+            
         }
     }
 }

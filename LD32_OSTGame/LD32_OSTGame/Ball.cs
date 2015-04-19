@@ -32,18 +32,20 @@ namespace LD32_OSTGame
             if(collidedWith.GetType() == typeof(ShardEnt))
             {
                 this.Health--;
-                
-                if(this.Health <= 0)
-                {
-                    //Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
-                    //new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
-                }
+
+                //should probably do some sort of health check???
+                Game1.BallCount--;
+
+                 Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
+                new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
+
+                 Game1.BallCount++;
             }
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch batch)
         {
-            batch.Draw(image, Position, null, null, origin, Rotation, null, Color.White, SpriteEffects.None, 0);
+            batch.Draw(image, Position, null, null, origin, Rotation, new Vector2(this.Scale), Color.White, SpriteEffects.None, 0);
 
             base.Draw(gameTime, batch);
         }
