@@ -29,6 +29,18 @@ namespace LD32_OSTGame
         //    this.image = cm.Load<Texture2D>("HappyRazorBladePickup");
         //}
 
+        public override void Collided(Entity collidedWith)
+          {
+            base.Collided(collidedWith);
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            Body = this.ReturnNewBody();
+
+            base.Update(gameTime);
+        }
+
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);

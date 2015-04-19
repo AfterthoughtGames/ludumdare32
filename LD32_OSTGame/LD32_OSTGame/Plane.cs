@@ -19,6 +19,9 @@ namespace LD32_OSTGame
         public Guid PlaneID { get; set; }
         private TimeSpan Lastfired { get; set; }
 
+        // trash bools
+        bool HasRazor = false;
+
         Random rand = new Random(DateTime.Now.Millisecond);
 
         public Plane(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotation) : base()
@@ -102,6 +105,22 @@ namespace LD32_OSTGame
                 
             }
 
+            if (collidedWith.GetType() == typeof(Razor))
+            {
+                bool hasPowerUp = false;
+
+                foreach (PowerUp currentPowerUp in PowerUps)
+                {
+                    if (currentPowerUp.GetType() == typeof(Razor)) hasPowerUp = true;
+                }
+
+                if (hasPowerUp == false)
+                {
+                    HasRazor = true;
+                    PowerUps.Add((Razor)collidedWith);
+                }
+            }
+
             if(Health < 76 && Health > 49)
             {
                 image = Game1.Plane2Img;
@@ -123,6 +142,7 @@ namespace LD32_OSTGame
             spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.Wheat ,SpriteEffects.None, 0);
             //spriteBatch.Draw(image, Position, null, null, origin, Rotation, null, 
                // new Color(236f, 249f, 155f), SpriteEffects.None, 0);
+            spriteBatch.DrawString(Game1.GUIFont, "Razor: " + HasRazor.ToString(), new Vector2(100, 100), Color.Red);
             base.Draw(gameTime, spriteBatch);
         }
 

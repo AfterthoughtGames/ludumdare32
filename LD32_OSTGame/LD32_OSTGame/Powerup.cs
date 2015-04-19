@@ -11,7 +11,10 @@ namespace LD32_OSTGame
     {
         public override void Collided(Entity collidedWith)
         {
-            Pickup();
+            if (collidedWith.GetType() == typeof(Plane))
+            {
+                Pickup();
+            }
 
             base.Collided(collidedWith);
         }

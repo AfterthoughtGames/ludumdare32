@@ -167,6 +167,9 @@
     <Content Include="Content\HappyRazorBladePickup.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\splash768.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="RawContent\Ball1.xnb" />
     <Content Include="RawContent\GUIFont.spritefont" />
