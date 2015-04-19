@@ -94,34 +94,37 @@ namespace LD32_OSTGame
 
         public Rectangle ReturnNewBody()
         {
+
             return new Rectangle((int)Position.X  - (image.Width /2), (int)Position.Y - (image.Height / 2), image.Width, image.Height);
         }
 
         public Rectangle ReturnNewBodyByScale(float scale)
         {
-            return new Rectangle((int)Position.X - (image.Width / 2), (int)Position.Y - (image.Height / 2), (int)(image.Width * scale), (int)(image.Height * scale));
+            return new Rectangle((int)Position.X - (int)((image.Width / 2)*Scale), (int)Position.Y - (int)((image.Height / 2)*Scale), (int)(image.Width * scale), (int)(image.Height * scale));
         }
 
         protected void wrap()
         {
-            if (Position.X < Game1.border - image.Width/2)
+            float width = image.Width * Scale;
+
+            if (Position.X < Game1.border - width/2)
             {
-                Position = new Vector2(Game1.ActualScreenWidth + Game1.border - image.Width/2 + image.Width, Position.Y);
+                Position = new Vector2(Game1.ActualScreenWidth + Game1.border - width / 2 + width, Position.Y);
             }
 
-            if (Position.X > Game1.ActualScreenWidth + Game1.border - image.Width/2 + image.Width )
+            if (Position.X > Game1.ActualScreenWidth + Game1.border - width / 2 + width)
             {
-                Position = new Vector2(Game1.border - image.Width / 2, Position.Y);
+                Position = new Vector2(Game1.border - width / 2, Position.Y);
             }
 
-            if (Position.Y < Game1.border - image.Width/2)
+            if (Position.Y < Game1.border - width / 2)
             {
-                Position = new Vector2(Position.X, Game1.ActualScreenHeight + Game1.border - image.Width/2 + image.Width);
+                Position = new Vector2(Position.X, Game1.ActualScreenHeight + Game1.border - width / 2 + width);
             }
 
-            if (Position.Y > Game1.ActualScreenHeight + Game1.border - image.Width / 2 + image.Width)
+            if (Position.Y > Game1.ActualScreenHeight + Game1.border - width / 2 + width)
             {
-                Position = new Vector2(Position.X, Game1.border - image.Width / 2);
+                Position = new Vector2(Position.X, Game1.border - width / 2);
             }
         }
          
