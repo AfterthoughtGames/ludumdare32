@@ -371,7 +371,7 @@ namespace LD32_OSTGame
             spriteBatch.End();
 
             // HACK: remove this once we can write text to the screen
-            this.Window.Title = Score.ToString();
+            //this.Window.Title = Score.ToString();
 
             base.Draw(gameTime);
         }

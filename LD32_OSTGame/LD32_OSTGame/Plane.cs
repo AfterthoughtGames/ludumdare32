@@ -105,8 +105,9 @@ namespace LD32_OSTGame
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.White,SpriteEffects.None, 0);
-
+            spriteBatch.Draw(image, Position, null, null, origin, Rotation, null,Color.Wheat ,SpriteEffects.None, 0);
+            //spriteBatch.Draw(image, Position, null, null, origin, Rotation, null, 
+               // new Color(236f, 249f, 155f), SpriteEffects.None, 0);
             base.Draw(gameTime, spriteBatch);
         }
 
