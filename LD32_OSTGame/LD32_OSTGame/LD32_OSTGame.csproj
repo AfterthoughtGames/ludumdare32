@@ -90,6 +90,9 @@
     <Content Include="RawContent\Ball2_Small.png" />
     <Content Include="RawContent\plane.png" />
     <Content Include="RawContent\Shard.png" />
+    <Content Include="RawContent\splash1080.png" />
+    <Content Include="RawContent\splash720.png" />
+    <Content Include="RawContent\splash768.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -127,6 +130,7 @@
     </Content>
     <None Include="packages.config" />
     <None Include="RawContent\Ball1.xnb" />
+    <None Include="RawContent\kenvector_future.ttf" />
     <None Include="RawContent\PaperBall.pdn" />
     <None Include="RawContent\plane.xnb" />
     <None Include="RawContent\Shard.xnb" />
