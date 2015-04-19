@@ -53,6 +53,16 @@ namespace LD32_OSTGame
                 }
             }
 
+            if(PowerUps[PowerSlotIndex].GetType() == typeof(Razor))
+            {
+                Game1.Rip.Play();
+
+                if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
+                {
+                    Game1.Entites.Add(new RazorEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg, (float)rand.NextDouble()));
+                }
+            }
+
             Lastfired = time.TotalGameTime;
         }
 
@@ -119,6 +129,8 @@ namespace LD32_OSTGame
                     HasRazor = true;
                     PowerUps.Add((Razor)collidedWith);
                 }
+
+                PowerSlotIndex = 1;
             }
 
             if(Health < 76 && Health > 49)
