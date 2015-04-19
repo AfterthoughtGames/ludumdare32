@@ -41,6 +41,7 @@ namespace LD32_OSTGame
         public static SoundEffect Pew;
         public static SoundEffect Hit;
         public static SoundEffect Rip;
+        public static SoundEffect CatSound;
 
         public static int ScreenWidth { get; set; }
         public static int ScreenHeight { get; set; }
@@ -128,6 +129,7 @@ namespace LD32_OSTGame
             Plane4Img = Content.Load<Texture2D>("plane4");
             razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
             SplashImg = Content.Load<Texture2D>("splash768");
+            CatSound = Content.Load<SoundEffect>("cat");
             
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
             
