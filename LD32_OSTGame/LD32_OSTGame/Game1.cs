@@ -28,7 +28,7 @@ namespace LD32_OSTGame
         public static List<Particle> Particles = new List<Particle>(); 
         private Texture2D planeImg;
         private Plane plane;
-        private Texture2D razorImg;
+        public static Texture2D razorImg;
         private Razor razor;
 
         private int resolutionOption = 0;

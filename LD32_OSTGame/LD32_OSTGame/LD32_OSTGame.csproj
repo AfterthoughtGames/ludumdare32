@@ -68,6 +68,7 @@
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Razor.cs" />
+    <Compile Include="RazorEnt.cs" />
     <Compile Include="Shard.cs" />
     <Compile Include="ShardEnt.cs" />
   </ItemGroup>
