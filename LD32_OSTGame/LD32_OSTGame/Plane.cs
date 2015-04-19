@@ -19,6 +19,8 @@ namespace LD32_OSTGame
         public Guid PlaneID { get; set; }
         private TimeSpan Lastfired { get; set; }
 
+        Random rand = new Random(DateTime.Now.Millisecond);
+
         public Plane(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotation) : base()
         {
             this.image = image;
@@ -42,7 +44,7 @@ namespace LD32_OSTGame
             {
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
-                    Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg));
+                    Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg, (float)rand.NextDouble()));
                 }
             }
 
