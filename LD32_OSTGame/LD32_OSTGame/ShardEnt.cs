@@ -27,7 +27,7 @@ namespace LD32_OSTGame
 
             this.Body = new Rectangle((int)pos.X, (int)pos.Y, img.Width, img.Height);
 
-            this.Thrust(-1.5f);
+            this.Thrust(-1.75f);
         }
 
         public override void LoadContent(Microsoft.Xna.Framework.Content.ContentManager cm)
