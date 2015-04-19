@@ -89,6 +89,7 @@
     <Content Include="RawContent\Ball2_Med.png" />
     <Content Include="RawContent\Ball2_Med2.png" />
     <Content Include="RawContent\Ball2_Small.png" />
+    <Content Include="RawContent\HappyRazorBladePickup.png" />
     <Content Include="RawContent\plane.png" />
     <Content Include="RawContent\Shard.png" />
     <Content Include="RawContent\splash1080.png" />
@@ -127,6 +128,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Shard.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\HappyRazorBladePickup.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />

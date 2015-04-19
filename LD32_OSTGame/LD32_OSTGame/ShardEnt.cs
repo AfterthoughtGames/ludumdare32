@@ -62,7 +62,7 @@ namespace LD32_OSTGame
             Position += Velocity;
             this.Body = this.ReturnNewBody();
 
-            if (Position.X < 0 || Position.X > Game1.ScreenWidth || Position.Y < 0 || Position.Y > Game1.ScrrenHeight) this.Health = 0;
+            if (Position.X < 0 || Position.X > Game1.ScreenWidth || Position.Y < 0 || Position.Y > Game1.ScreenHeight) this.Health = 0;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch batch)
