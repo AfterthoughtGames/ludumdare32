@@ -33,13 +33,32 @@ namespace LD32_OSTGame
             {
                 this.Health--;
 
-                //should probably do some sort of health check???
-                Game1.BallCount--;
+                if (this.Health == 0)
+                {
+                    //should probably do some sort of health check???
+                    Game1.BallCount--;
 
-                 Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
-                new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
+                    if (this.Scale > 0.125)
+                    {
+                        Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
+                        new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
-                 Game1.BallCount++;
+                        ball1.Body = new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball1.Scale), (int)(this.image.Height * ball1.Scale));
+
+                        Game1.Entites.Add(ball1);
+
+                        Ball ball2 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
+                        new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
+
+                        ball2.Body = new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball2.Scale), (int)(this.image.Height * ball2.Scale));
+
+                        Game1.Entites.Add(ball2);
+
+
+
+                        Game1.BallCount++;
+                    }
+                }
             }
         }
 
@@ -59,7 +78,7 @@ namespace LD32_OSTGame
 
             wrap();
 
-            this.Body = this.ReturnNewBody();
+            this.Body = this.ReturnNewBodyByScale(this.Scale);
 
             base.Update(gameTime);
         }

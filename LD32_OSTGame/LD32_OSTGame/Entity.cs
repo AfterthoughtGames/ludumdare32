@@ -97,6 +97,11 @@ namespace LD32_OSTGame
             return new Rectangle((int)Position.X  - (image.Width /2), (int)Position.Y - (image.Height / 2), image.Width, image.Height);
         }
 
+        public Rectangle ReturnNewBodyByScale(float scale)
+        {
+            return new Rectangle((int)Position.X - (image.Width / 2), (int)Position.Y - (image.Height / 2), (int)(image.Width * scale), (int)(image.Height * scale));
+        }
+
         protected void wrap()
         {
             if (Position.X < Game1.border - image.Width/2)
