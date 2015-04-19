@@ -89,13 +89,14 @@ namespace LD32_OSTGame
 
             if (collidedWith.GetType() == typeof(Ball))
             {
-                this.Health--;
+                
 
                 Vector2 away = collidedWith.Position - Position;
                 if(away.Length() < 140 * collidedWith.Scale)
                 {
                     away.Normalize();
                     this.Velocity = -away * 2;
+                    this.Health--;
                 }
                 
                 
