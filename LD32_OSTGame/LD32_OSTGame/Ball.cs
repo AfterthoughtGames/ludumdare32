@@ -32,8 +32,14 @@ namespace LD32_OSTGame
             if(collidedWith.GetType() == typeof(ShardEnt))
             {
                 this.Health--;
+
+                //should probably do some sort of health check???
+                Game1.BallCount--;
+
                  Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
                 new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
+
+                 Game1.BallCount++;
             }
         }
 
