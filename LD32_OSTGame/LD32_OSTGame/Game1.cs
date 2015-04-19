@@ -422,6 +422,7 @@ namespace LD32_OSTGame
                 spriteBatch.Draw(bigScreen, new Vector2(-350, -350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
                 spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);
+                spriteBatch.DrawString(GUIFont, "Power Up: " + plane.PowerUps[plane.PowerSlotIndex].GetType().ToString() + "   Ammo: " + plane.PowerUps[plane.PowerSlotIndex].AmmoCount.ToString(), new Vector2(200, 730), Color.Red);
                 spriteBatch.End();
             }
 

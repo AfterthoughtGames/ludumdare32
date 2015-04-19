@@ -14,8 +14,8 @@ namespace LD32_OSTGame
 
         protected float FireRate { get; set; }
         protected Vector2 origin;
-        protected List<PowerUp> PowerUps { get; set; }
-        private int PowerSlotIndex { get; set; }
+        public List<PowerUp> PowerUps { get; set; }
+        public int PowerSlotIndex { get; set; }
         public Guid PlaneID { get; set; }
         private TimeSpan Lastfired { get; set; }
 
@@ -56,6 +56,8 @@ namespace LD32_OSTGame
             if(PowerUps[PowerSlotIndex].GetType() == typeof(Razor))
             {
                 Game1.Rip.Play();
+
+                PowerUps[PowerSlotIndex].AmmoCount--;
 
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
@@ -169,6 +171,15 @@ namespace LD32_OSTGame
             {
                 Game1.ActivePlay = false;
                 Game1.ActiveSplash = true;
+            }
+
+            for(int powerIndex = 0; powerIndex < PowerUps.Count; powerIndex++)
+            {
+                if(PowerUps[powerIndex].AmmoCount <= 0 && powerIndex != 0)
+                {
+                    PowerUps.RemoveAt(powerIndex);
+                    PowerSlotIndex = PowerUps.Count - 1;
+                }
             }
         }
 

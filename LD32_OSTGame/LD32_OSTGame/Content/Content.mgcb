@@ -219,3 +219,9 @@
 /processorParam:TextureFormat=Color
 /build:../RawContent/Razor.png
 
+#begin ../RawContent/cat.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../RawContent/cat.wav
+

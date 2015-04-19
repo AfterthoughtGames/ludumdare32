@@ -13,13 +13,14 @@ namespace LD32_OSTGame
         Vector2 origin;
         float rotationSpeed;
 
-        public Razor(Texture2D image, Vector2 position, float scale, float rotationSpeed) : base()
+        public Razor(Texture2D image, Vector2 position, float scale, float rotationSpeed, int ammoCount) : base()
         {
             this.image = image;
             this.Position = position;
             this.Scale = scale;
             this.Health = 1;
             this.rotationSpeed = rotationSpeed;
+            this.AmmoCount = ammoCount;
 
             origin = new Vector2(image.Width / 2, image.Height / 2);
         }
