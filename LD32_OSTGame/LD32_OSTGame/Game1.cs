@@ -54,6 +54,9 @@ namespace LD32_OSTGame
         public static Texture2D Plane3Img { get; set; }
         public static Texture2D Plane4Img { get; set; }
 
+        public static Texture2D Kitten { get; set; }
+        public static Texture2D KittenBullet { get; set; }
+
         private Texture2D SplashImg { get; set; }
 
         public static bool ActiveSplash = true;
@@ -113,6 +116,9 @@ namespace LD32_OSTGame
             Ball1 = Content.Load<Texture2D>("Ball1");
             ShardImg = Content.Load<Texture2D>("Shard");
             RazorEntImg = Content.Load<Texture2D>("Razor");
+
+            Kitten = Content.Load<Texture2D>("Kitten");
+            KittenBullet = Content.Load<Texture2D>("KittenBullet");
 
             Particle1 = Content.Load<Texture2D>("Particle1");
 

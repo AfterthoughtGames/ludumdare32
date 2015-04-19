@@ -30,6 +30,17 @@ namespace LD32_OSTGame
         {
             Random rand = new Random();
 
+            if (collidedWith.GetType() == typeof(KittenEnt))
+            {
+                Vector2 away = collidedWith.Position - Position;
+                if (away.Length() < 140 * Scale)
+                {
+                    this.Health = 0;
+                    collidedWith.Health = 0;
+                    Game1.BallCount--;
+                }
+            }
+
             if (collidedWith.GetType() == typeof(ShardEnt))
             {
                 Vector2 away = collidedWith.Position - Position;
@@ -67,7 +78,14 @@ namespace LD32_OSTGame
 
                             if(rndNum < 20)
                             {
-                                Game1.Entites.Add(new Razor(Game1.razorImg, this.Position, 1, 0));
+                                if (rndNum < 10)
+                                {
+                                    Game1.Entites.Add(new Kitten(Game1.Kitten, this.Position, 1, 0));
+                                }
+                                else
+                                {
+                                    Game1.Entites.Add(new Razor(Game1.razorImg, this.Position, 1, 0));
+                                }
                             }
 
                             Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),

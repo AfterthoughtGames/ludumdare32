@@ -53,6 +53,16 @@ namespace LD32_OSTGame
                 }
             }
 
+              if (PowerUps[PowerSlotIndex].GetType() == typeof(Kitten))
+            {
+                Game1.Pew.Play();
+
+                if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
+                {
+                    Game1.Entites.Add(new KittenEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.KittenBullet, (float)rand.NextDouble()));
+                }
+            }
+
             if(PowerUps[PowerSlotIndex].GetType() == typeof(Razor))
             {
                 Game1.Rip.Play();
@@ -128,6 +138,24 @@ namespace LD32_OSTGame
                 {
                     HasRazor = true;
                     PowerUps.Add((Razor)collidedWith);
+                }
+
+                PowerSlotIndex = 1;
+            }
+
+            if (collidedWith.GetType() == typeof(Kitten))
+            {
+                bool hasPowerUp = false;
+
+                foreach (PowerUp currentPowerUp in PowerUps)
+                {
+                    if (currentPowerUp.GetType() == typeof(Kitten)) hasPowerUp = true;
+                }
+
+                if (hasPowerUp == false)
+                {
+                    HasRazor = true;
+                    PowerUps.Add((Kitten)collidedWith);
                 }
 
                 PowerSlotIndex = 1;
