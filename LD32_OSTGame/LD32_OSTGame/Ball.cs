@@ -32,8 +32,12 @@ namespace LD32_OSTGame
             if(collidedWith.GetType() == typeof(ShardEnt))
             {
                 this.Health--;
-                 Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
-                new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
+                
+                if(this.Health <= 0)
+                {
+                    //Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
+                    //new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
+                }
             }
         }
 

@@ -355,7 +355,7 @@ namespace LD32_OSTGame
             Random rand = new Random(DateTime.Now.Millisecond);
             
             //make rocks
-            Ball ball = new Ball(Ball1, 100, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
+            Ball ball = new Ball(Ball1, 20, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
                 new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
             Entites.Add(ball);
