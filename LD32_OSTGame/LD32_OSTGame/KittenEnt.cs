@@ -21,6 +21,7 @@ namespace LD32_OSTGame
             this.Health = 1;
             this.Scale = randomness;
             this.imageRotation = 360f * randomness;
+            
 
             this.Body = new Rectangle((int)pos.X, (int)pos.Y, img.Width, img.Height);
 

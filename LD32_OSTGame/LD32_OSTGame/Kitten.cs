@@ -21,6 +21,7 @@ namespace LD32_OSTGame
             this.Scale = scale;
             this.Health = 1;
             this.rotationSpeed = rotationSpeed;
+            this.AmmoCount = 10;
 
             origin = new Vector2(image.Width / 2, image.Height / 2);
         }
