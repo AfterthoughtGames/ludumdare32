@@ -18,7 +18,7 @@ namespace LD32_OSTGame
         GamePadState PreviousGamePad;
         DateTime LimitedUpdateTime;
         int limitDelay = 50;
-        public static int border = 360;
+        public static int border = 350;
 
         RenderTarget2D bigScreen;
 

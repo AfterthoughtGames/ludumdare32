@@ -90,25 +90,27 @@ namespace LD32_OSTGame
             Position += Velocity;
             this.Body = this.ReturnNewBody();
 
-            if (Position.X < 350 - 80)
-            {
-                Position = new Vector2(1024 + 350, Position.Y);
-            }
+            wrap();
 
-            if (Position.X > 1024 + 350 + 80)
-            {
-                Position = new Vector2(350 -80, Position.Y);
-            }
+            //if (Position.X < 350 - 80)
+            //{
+            //    Position = new Vector2(1024 + 350, Position.Y);
+            //}
 
-            if (Position.Y < 350 - 80)
-            {
-                Position = new Vector2(Position.X, 768 + 350);
-            }
+            //if (Position.X > 1024 + 350 + 80)
+            //{
+            //    Position = new Vector2(350 -80, Position.Y);
+            //}
 
-            if (Position.Y > 768 + 350)
-            {
-                Position = new Vector2(Position.X, 350 - 80);
-            }
+            //if (Position.Y < 350 - 80)
+            //{
+            //    Position = new Vector2(Position.X, 768 + 350);
+            //}
+
+            //if (Position.Y > 768 + 350)
+            //{
+            //    Position = new Vector2(Position.X, 350 - 80);
+            //}
         }
 
 

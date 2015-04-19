@@ -96,6 +96,29 @@ namespace LD32_OSTGame
         {
             return new Rectangle((int)Position.X  - (image.Width /2), (int)Position.Y - (image.Height / 2), image.Width, image.Height);
         }
+
+        protected void wrap()
+        {
+            if (Position.X < image.Width/2)
+            {
+                Position = new Vector2(Game1.ScreenWidth + image.Width / 2, Position.Y);
+            }
+
+            if (Position.X > Game1.ScreenWidth + image.Width / 2)
+            {
+                Position = new Vector2(image.Width/2, Position.Y);
+            }
+
+            if (Position.Y < image.Width / 2)
+            {
+                Position = new Vector2(Position.X, Game1.ScrrenHeight + image.Width / 2);
+            }
+
+            if (Position.Y > Game1.ScrrenHeight + image.Width / 2)
+            {
+                Position = new Vector2(Position.X, image.Width / 2);
+            }
+        }
          
     }
 }
