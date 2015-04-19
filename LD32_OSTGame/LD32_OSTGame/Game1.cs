@@ -55,6 +55,9 @@ namespace LD32_OSTGame
         public static bool ActiveSplash = true;
         public static bool ActivePlay = false;
 
+        public static Texture2D Particle1;
+        public static List<Particle> Particles = new List<Particle>(); 
+
         public static int  BallCount = 0;
         
         public Game1()
@@ -108,6 +111,8 @@ namespace LD32_OSTGame
             //load Balls
             Ball1 = Content.Load<Texture2D>("Ball1");
             ShardImg = Content.Load<Texture2D>("Shard");
+
+            Particle1 = Content.Load<Texture2D>("Particle1");
 
             planeImg = Content.Load<Texture2D>("plane");
             Plane2Img = Content.Load<Texture2D>("plane2");
@@ -345,6 +350,19 @@ namespace LD32_OSTGame
                 }
                 plane.Update(gameTime);
 
+                foreach (Particle p in Particles)
+                {
+                    p.Update(gameTime);
+                }
+
+                for (int i = 0; i < Particles.Count; i++)
+                {
+                    if (Particles[i].health <= 0)
+                    {
+                        Particles.RemoveAt(i);
+                    }
+                }
+
                 // cleanup entities 
                 for (int count = 0; count < Entites.Count; count++)
                 {
@@ -397,6 +415,7 @@ namespace LD32_OSTGame
                 spriteBatch.Begin();
                 drawEntities(spriteBatch, gameTime);
                 plane.Draw(spriteBatch, gameTime);
+                drawParticles(spriteBatch, gameTime);
                 spriteBatch.End();
                 GraphicsDevice.SetRenderTarget(null);
 
@@ -428,6 +447,14 @@ namespace LD32_OSTGame
             foreach(Entity ent in Entites)
             {
                 ent.Draw(gameTime, spriteBatch);
+            }
+        }
+
+        private void drawParticles(SpriteBatch spriteBatch, GameTime gameTime)
+        {
+            foreach (Particle p in Particles)
+            {
+                p.Draw(gameTime, spriteBatch);
             }
         }
 
