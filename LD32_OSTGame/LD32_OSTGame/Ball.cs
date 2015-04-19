@@ -7,6 +7,7 @@ using System.Text;
 
 namespace LD32_OSTGame
 {
+    // all balls are made with this class just switch out the image and health
     public class Ball : Entity
     {
         Vector2 origin;
@@ -26,9 +27,13 @@ namespace LD32_OSTGame
 
         public override void Collided(Entity collidedWith)
         {
+            Random rand = new Random();
+
             if(collidedWith.GetType() == typeof(ShardEnt))
             {
                 this.Health--;
+                 Game1.Entites.Add(new Ball(image, 100, new Vector2(Position.X, Position.Y), (Scale / 2),
+                new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f));
             }
         }
 

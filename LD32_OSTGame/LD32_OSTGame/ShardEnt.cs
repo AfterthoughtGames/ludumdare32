@@ -44,6 +44,13 @@ namespace LD32_OSTGame
                     this.Health--;
                 }
             }
+
+            if (collidedWith.GetType() == typeof(Ball))
+            {
+                
+                this.Health--;
+                
+            }
         }
 
         public override void Update(GameTime gameTime)
