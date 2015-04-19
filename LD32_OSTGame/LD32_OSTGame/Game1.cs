@@ -46,6 +46,10 @@ namespace LD32_OSTGame
         public static Texture2D DebugBoxRect { get; set; }
         public static int Score { get; set; }
 
+        public static Texture2D Plane2Img { get; set; }
+        public static Texture2D Plane3Img { get; set; }
+        public static Texture2D Plane4Img { get; set; }
+
         public static int  BallCount = 0;
         
         public Game1()
@@ -79,8 +83,6 @@ namespace LD32_OSTGame
         /// </summary>
         protected override void LoadContent()
         {
-            
-            
             DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
@@ -103,6 +105,9 @@ namespace LD32_OSTGame
             ShardImg = Content.Load<Texture2D>("Shard");
 
             planeImg = Content.Load<Texture2D>("plane");
+            Plane2Img = Content.Load<Texture2D>("plane2");
+            Plane3Img = Content.Load<Texture2D>("plane3");
+            Plane4Img = Content.Load<Texture2D>("plane4");
             razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
             Vector2 screenCenter = new Vector2(bigScreen.Width / 2, bigScreen.Height / 2);
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);

@@ -101,6 +101,21 @@ namespace LD32_OSTGame
                 
                 
             }
+
+            if(Health < 76 && Health > 49)
+            {
+                image = Game1.Plane2Img;
+            }
+
+            if (Health < 50 && Health > 24)
+            {
+                image = Game1.Plane3Img;
+            }
+
+            if (Health < 25 && Health > 0)
+            {
+                image = Game1.Plane4Img;
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)

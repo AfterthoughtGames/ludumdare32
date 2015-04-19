@@ -94,6 +94,9 @@
     <Content Include="RawContent\pew3.wav" />
     <Content Include="RawContent\HappyRazorBladePickup.png" />
     <Content Include="RawContent\plane.png" />
+    <Content Include="RawContent\plane2.png" />
+    <Content Include="RawContent\plane3.png" />
+    <Content Include="RawContent\plane4.png" />
     <Content Include="RawContent\rip.wav" />
     <Content Include="RawContent\Shard.png" />
     <Content Include="RawContent\splash1080.png" />
@@ -147,6 +150,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\pew3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\plane2.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\plane3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\plane4.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\rip.xnb">
