@@ -41,20 +41,23 @@ namespace LD32_OSTGame
 
         public override void Collided(Entity collidedWith)
         {
-            if(collidedWith.GetType() == typeof(Plane))
-            {
-                if(((Plane)collidedWith).PlaneID != this.parrentID)
-                {
-                    this.Health--;
-                }
-            }
+            //if(collidedWith.GetType() == typeof(Plane))
+            //{
+            //    if(((Plane)collidedWith).PlaneID != this.parrentID)
+            //    {
+            //        this.Health--;
+            //    }
+            //}
 
-            if (collidedWith.GetType() == typeof(Ball))
-            {
+            //if (collidedWith.GetType() == typeof(Ball))
+            //{
+            //    Vector2 away = collidedWith.Position - Position;
+            //    if (away.Length() < 140 * Scale)
+            //    {
+            //        this.Health--;
+            //    }
                 
-                this.Health--;
-                
-            }
+            //}
         }
 
         public override void Update(GameTime gameTime)

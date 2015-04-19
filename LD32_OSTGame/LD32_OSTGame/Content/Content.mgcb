@@ -164,3 +164,14 @@
 /processorParam:Quality=Best
 /build:../RawContent/pew3.wav
 
+#begin ../RawContent/Particle1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:../RawContent/Particle1.png
+

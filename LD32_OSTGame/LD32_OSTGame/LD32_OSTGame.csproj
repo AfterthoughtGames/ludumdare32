@@ -57,6 +57,7 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Particle.cs" />
     <Compile Include="Powerup.cs" />
     <Compile Include="Plane.cs" />
     <Compile Include="Ball.cs" />
@@ -140,6 +141,9 @@
     <None Include="Content\hit.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Content Include="Content\Particle1.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Content\pew.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
