@@ -331,8 +331,9 @@ namespace LD32_OSTGame
             GraphicsDevice.Clear(Color.Black);
 
             spriteBatch.Begin();
-                plane.Draw(spriteBatch, gameTime);
+                
                 drawEntities(spriteBatch, gameTime);
+                plane.Draw(spriteBatch, gameTime);
             spriteBatch.End();
 
             GraphicsDevice.SetRenderTarget(null);
