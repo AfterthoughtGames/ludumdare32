@@ -29,6 +29,7 @@ namespace LD32_OSTGame
         private Texture2D planeImg;
         private Plane plane;
         public static Texture2D razorImg;
+        public static Texture2D RazorEntImg;
         private Razor razor;
 
         private int resolutionOption = 0;
@@ -111,6 +112,7 @@ namespace LD32_OSTGame
             //load Balls
             Ball1 = Content.Load<Texture2D>("Ball1");
             ShardImg = Content.Load<Texture2D>("Shard");
+            RazorEntImg = Content.Load<Texture2D>("Razor");
 
             Particle1 = Content.Load<Texture2D>("Particle1");
 
