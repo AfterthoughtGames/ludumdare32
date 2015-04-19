@@ -13,7 +13,8 @@ namespace LD32_OSTGame
         Vector2 origin;
         float rotationSpeed;
 
-        public Ball(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotationSpeed) : base()
+        public Ball(Texture2D image, int health, Vector2 position, float scale, Vector2 velocity, float rotationSpeed)
+            : base()
         {
             this.image = image;
             this.Health = health;
@@ -29,43 +30,55 @@ namespace LD32_OSTGame
         {
             Random rand = new Random();
 
-            if(collidedWith.GetType() == typeof(ShardEnt))
+            if (collidedWith.GetType() == typeof(ShardEnt))
             {
-                this.Health--;
-                Game1.Hit.Play();
-
-                if (this.Health == 0)
+                Vector2 away = collidedWith.Position - Position;
+                if (away.Length() < 140 * Scale)
                 {
-                    Game1.Rip.Play();
+                    collidedWith.Health--;
+                    this.Health--;
+                    Game1.Hit.Play();
 
-                    Game1.Score++;
 
-                    //Game1.Entites.Add(new Razor(Game1.razorImg, Position, 1, 1));
-
-                    //should probably do some sort of health check???
-                    Game1.BallCount--;
-
-                    if (this.Scale > 0.125)
+                    for (int i = 0; i < 5; i++)
                     {
-                        
-                        Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
-                        new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
-                        ball1.Body = this.ReturnNewBodyByScale(ball1.Scale); //new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball1.Scale), (int)(this.image.Height * ball1.Scale));
+                        Particle p = new Particle(Game1.Particle1, collidedWith.Position + new Vector2(rand.Next(-10, 10), rand.Next(-10, 10)), .5f * (float)rand.NextDouble(),
+                            new Vector2(rand.Next(-5, 5), rand.Next(-5, 5)), (float)rand.NextDouble(), rand.Next(10, 20), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255), 1));
+                        Game1.Particles.Add(p);
+                    }
 
-                        Game1.Entites.Add(ball1);
+                    if (this.Health == 0)
+                    {
+                        Game1.Rip.Play();
 
-                        Ball ball2 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
-                        new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
+                        Game1.Score++;
 
-                        ball2.Body = this.ReturnNewBodyByScale(ball2.Scale); //new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball2.Scale), (int)(this.image.Height * ball2.Scale));
+                        //should probably do some sort of health check???
+                        Game1.BallCount--;
 
-                        Game1.Entites.Add(ball2);
+                        if (this.Scale > 0.125)
+                        {
+
+                            Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
+                            new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
+
+                            ball1.Body = this.ReturnNewBodyByScale(ball1.Scale); //new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball1.Scale), (int)(this.image.Height * ball1.Scale));
+
+                            Game1.Entites.Add(ball1);
+
+                            Ball ball2 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
+                            new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
+
+                            ball2.Body = this.ReturnNewBodyByScale(ball2.Scale); //new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball2.Scale), (int)(this.image.Height * ball2.Scale));
+
+                            Game1.Entites.Add(ball2);
 
 
 
-                        Game1.BallCount++;
-                        Game1.BallCount++;
+                            Game1.BallCount++;
+                            Game1.BallCount++;
+                        }
                     }
                 }
             }
