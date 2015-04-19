@@ -214,37 +214,52 @@ namespace LD32_OSTGame
 
             if(currentPad.DPad.Up == ButtonState.Pressed)
             {
-
+                plane.Thrust(Direction.Up);
             }
 
             if (currentPad.DPad.Down == ButtonState.Pressed)
             {
-
+                plane.Rotate(Direction.Down);
             }
 
             if(currentPad.DPad.Left == ButtonState.Pressed)
             {
-
+                plane.Rotate(Direction.Left);
             }
 
             if(currentPad.DPad.Right == ButtonState.Pressed)
             {
-
+                plane.Rotate(Direction.Right);
             }
 
             if(currentPad.Buttons.A == ButtonState.Pressed)
             {
-
+                plane.Fire(gameTime);
             }
 
             if(currentPad.Buttons.X == ButtonState.Pressed)
             {
-
+                plane.SwitchUpgrade(SwitchDirection.Left);
             }
 
             if(currentPad.Buttons.Y == ButtonState.Pressed)
             {
+                plane.SwitchUpgrade(SwitchDirection.Right);
+            }
 
+            if(currentPad.ThumbSticks.Left.X < 0)
+            {
+                plane.Rotate(Direction.Left);
+            }
+
+            if (currentPad.ThumbSticks.Left.X > 0)
+            {
+                plane.Rotate(Direction.Right);
+            }
+
+            if (currentPad.ThumbSticks.Left.Y > 0)
+            {
+                plane.Thrust(Direction.Up);
             }
 
             PreviousGamePad = currentPad;
