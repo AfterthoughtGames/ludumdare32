@@ -59,7 +59,7 @@ namespace LD32_OSTGame
 
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
-                    Game1.Entites.Add(new RazorEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg, (float)rand.NextDouble()));
+                    Game1.Entites.Add(new RazorEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.RazorEntImg, (float)rand.NextDouble()));
                 }
             }
 
