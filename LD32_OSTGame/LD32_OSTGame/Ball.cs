@@ -45,19 +45,20 @@ namespace LD32_OSTGame
                         Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
                         new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
-                        ball1.Body = new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball1.Scale), (int)(this.image.Height * ball1.Scale));
+                        ball1.Body = this.ReturnNewBodyByScale(ball1.Scale); //new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball1.Scale), (int)(this.image.Height * ball1.Scale));
 
                         Game1.Entites.Add(ball1);
 
                         Ball ball2 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
                         new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
-                        ball2.Body = new Rectangle((int)Position.X , (int)Position.Y, (int)(this.image.Width * ball2.Scale), (int)(this.image.Height * ball2.Scale));
+                        ball2.Body = this.ReturnNewBodyByScale(ball2.Scale); //new Rectangle((int)Position.X, (int)Position.Y, (int)(this.image.Width * ball2.Scale), (int)(this.image.Height * ball2.Scale));
 
                         Game1.Entites.Add(ball2);
 
 
 
+                        Game1.BallCount++;
                         Game1.BallCount++;
                     }
                 }
