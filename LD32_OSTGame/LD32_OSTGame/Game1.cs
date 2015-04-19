@@ -371,6 +371,7 @@ namespace LD32_OSTGame
             {
                 Ball ball = new Ball(Ball1, 3, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
                     new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
+                ball.Body = ball.ReturnNewBodyByScale(1);
 
                 Entites.Add(ball);
                 BallCount++;
