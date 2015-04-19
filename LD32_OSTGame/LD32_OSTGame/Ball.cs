@@ -45,6 +45,7 @@ namespace LD32_OSTGame
 
                     if (this.Scale > 0.125)
                     {
+                        
                         Ball ball1 = new Ball(image, 3, new Vector2(Position.X, Position.Y), (Scale / 2),
                         new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
 
