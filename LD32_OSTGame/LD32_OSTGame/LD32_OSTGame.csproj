@@ -80,6 +80,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="RawContent\Ball1.png" />
+    <Content Include="RawContent\Ball1_Med.png" />
+    <Content Include="RawContent\Ball1_Med2.png" />
+    <Content Include="RawContent\Ball1_Small.png" />
+    <Content Include="RawContent\Ball2.png" />
+    <Content Include="RawContent\Ball2_Med.png" />
+    <Content Include="RawContent\Ball2_Med2.png" />
+    <Content Include="RawContent\Ball2_Small.png" />
+    <Content Include="RawContent\plane.png" />
+    <Content Include="RawContent\Shard.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -95,6 +105,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="RawContent\Ball1.xnb" />
+    <None Include="RawContent\PaperBall.pdn" />
+    <None Include="RawContent\plane.xnb" />
+    <None Include="RawContent\Shard.xnb" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

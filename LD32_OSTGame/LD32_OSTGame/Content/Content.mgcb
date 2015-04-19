@@ -35,6 +35,17 @@
 /processorParam:TextureFormat=Color
 /build:../RawContent/Ball1.png
 
+#begin ../RawContent/Ball1_Med.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:../RawContent/Ball1_Med.png
+
 #begin ../RawContent/Shard.png
 /importer:TextureImporter
 /processor:TextureProcessor
