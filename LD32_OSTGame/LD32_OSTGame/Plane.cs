@@ -76,7 +76,27 @@ namespace LD32_OSTGame
                 if(((ShardEnt)collidedWith).parrentID != this.PlaneID)
                 {
                     this.Health--;
+
+                    if(Position.X < collidedWith.Position.X)
+                    {
+                        //plane is left
+                        this.Velocity *= new Vector2(-1,1);
+                    }
                 }
+            }
+
+            if (collidedWith.GetType() == typeof(Ball))
+            {
+                this.Health--;
+
+                Vector2 away = collidedWith.Position - Position;
+                if(away.Length() < 140 * collidedWith.Scale)
+                {
+                    away.Normalize();
+                    this.Velocity = -away * 2;
+                }
+                
+                
             }
         }
 
