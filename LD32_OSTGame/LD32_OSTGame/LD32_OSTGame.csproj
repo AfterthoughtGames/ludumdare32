@@ -92,6 +92,7 @@
     <Content Include="RawContent\Ball2_Med.png" />
     <Content Include="RawContent\Ball2_Med2.png" />
     <Content Include="RawContent\Ball2_Small.png" />
+    <Content Include="RawContent\bg1024.png" />
     <Content Include="RawContent\cat.wav" />
     <Content Include="RawContent\hit.wav" />
     <Content Include="RawContent\pew.wav" />
@@ -144,6 +145,9 @@
     <Content Include="Content\Shard.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Content\bg1024.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\cat.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

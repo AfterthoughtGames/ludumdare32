@@ -59,9 +59,11 @@ namespace LD32_OSTGame
         public static Texture2D KittenBullet { get; set; }
 
         private Texture2D SplashImg { get; set; }
+        private Texture2D BgWood { get; set; }
 
         public static bool ActiveSplash = true;
         public static bool ActivePlay = false;
+        public static bool ActiveInfo = false;
 
         public static int  BallCount = 0;
         
@@ -96,6 +98,7 @@ namespace LD32_OSTGame
         /// </summary>
         protected override void LoadContent()
         {
+            Window.Title = "Paper Cut - LD32";
             DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
@@ -129,6 +132,7 @@ namespace LD32_OSTGame
             Plane4Img = Content.Load<Texture2D>("plane4");
             razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
             SplashImg = Content.Load<Texture2D>("splash768");
+            BgWood = Content.Load<Texture2D>("bg1024");
             CatSound = Content.Load<SoundEffect>("cat");
             
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
@@ -163,6 +167,7 @@ namespace LD32_OSTGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            #region ActivePlay
             if (ActivePlay == true)
             {
                 if (BallCount == 0)
@@ -377,10 +382,13 @@ namespace LD32_OSTGame
                     }
                 }
             }
+            #endregion
 
+            #region ActiveSplash
             if (ActiveSplash == true)
             {
                 KeyboardState currentKeyboard = Keyboard.GetState();
+                GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
                 if (currentKeyboard.IsKeyDown(Keys.Space))
                 {
                     ActiveSplash = false;
@@ -388,15 +396,28 @@ namespace LD32_OSTGame
                     BallCount = 0;
                     Particles.Clear();
                 }
-                PreviousKeyboard = currentKeyboard;
 
-                GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
+                if ((currentKeyboard.IsKeyDown(Keys.I) && !PreviousKeyboard.IsKeyDown(Keys.I)) || (currentPad.Buttons.B == ButtonState.Pressed && PreviousGamePad.Buttons.B == ButtonState.Released))
+                {
+                    if (ActiveInfo == false)
+                    {
+                        ActiveInfo = true;
+                    }
+                    else
+                    {
+                        ActiveInfo = false;
+                    }
+                }
+                
                 if (currentPad.Buttons.A == ButtonState.Pressed)
                 {
                     ActiveSplash = false;
                 }
+
+                PreviousKeyboard = currentKeyboard;
                 PreviousGamePad = currentPad;
             }
+            #endregion
 
             if (ActiveSplash == false && ActivePlay == false)
             {
@@ -417,7 +438,7 @@ namespace LD32_OSTGame
                 GraphicsDevice.SetRenderTarget(bigScreen);
                 GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
-
+                //spriteBatch.Draw(BgWood, Vector2.Zero, Color.White);
                 drawEntities(spriteBatch, gameTime);
                 plane.Draw(spriteBatch, gameTime);
                 drawParticles(spriteBatch, gameTime);
@@ -427,9 +448,12 @@ namespace LD32_OSTGame
 
                 GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
-                plane.Draw(spriteBatch, gameTime);
+                //spriteBatch.Draw(BgWood, Vector2.Zero, Color.White);
+                
                 //razor.Draw(gameTime, spriteBatch);
+                plane.Draw(spriteBatch, gameTime);
                 spriteBatch.Draw(bigScreen, new Vector2(-350, -350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
+                
                 spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Power Up: " + plane.PowerUps[plane.PowerSlotIndex].GetType().ToString() + "   Ammo: " + plane.PowerUps[plane.PowerSlotIndex].AmmoCount.ToString(), new Vector2(200, 730), Color.Red);
@@ -438,9 +462,38 @@ namespace LD32_OSTGame
 
             if(ActiveSplash == true)
             {
-                GraphicsDevice.Clear(Color.Black);
+                GraphicsDevice.Clear(Color.White);
                 spriteBatch.Begin();
-                spriteBatch.Draw(SplashImg, Vector2.Zero, Color.White);
+                if (ActiveInfo != true)
+                {
+                    spriteBatch.Draw(SplashImg, Vector2.Zero, Color.White);
+                    spriteBatch.DrawString(GUIFont, "Press Space(A) to Start or I(B) for Information", new Vector2(105, 720), Color.Black);
+                }
+                else
+                {
+                    spriteBatch.DrawString(GUIFont, "This game was made with a 3 1/2  person crew in 16 hours during Ludum Dare 32. The goal for", new Vector2(10, 10), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "the group was to make a small and manageable game given the reduced time frame and relative", new Vector2(10, 30), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "inexperience with a game jam the crew had. What came out of this effort was a kitty lunching", new Vector2(10, 50), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "romp of an asteroid clone. Have fun and dont for get to follow us on twitter for more crazy", new Vector2(10, 70), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "adventures.", new Vector2(10, 90), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "I want to thank our family and friends for their support and patience during our time away", new Vector2(10, 130), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "from them. You guys rock.", new Vector2(10, 150), Color.Black);
+                    spriteBatch.Draw(Kitten, new Vector2(450, 250), null ,Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                    spriteBatch.DrawString(GUIFont, "Code & Art -       Larry (Hipster Hockey Puck) Martian", new Vector2(10, 450), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "Code -             Matt (Lord of the Level) Johnson", new Vector2(10, 470), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "Code & Sound -     Aaron (Punching Enums) Van Prooyen", new Vector2(10, 490), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "Art & Porting -    Ben (Bald Spectator) Werden ", new Vector2(10, 510), Color.Black);
+                    /*
+                     * 
+
+Code & Art – Larry “Hipster Hockey Puck” Martian
+Code – Aaron “Punching Enums” Van Prooyen
+Code –Matt “Lord of the Level” Johnson
+Art & Porting – Ben “Bald Spectator” Werden 
+
+                     * 
+                     */
+                }
                 spriteBatch.End();
             }
 
