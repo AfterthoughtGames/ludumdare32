@@ -432,9 +432,9 @@ namespace papercut
                 plane.Draw(spriteBatch, gameTime);
                 spriteBatch.Draw(bigScreen, new Vector2(-350, -350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
 
-                spriteBatch.DrawString(GUIFont, "Score: " + GameState.Score, new Vector2(900, 730), Color.Red);
-                spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);
-                spriteBatch.DrawString(GUIFont, "Power Up: " + plane.PowerUps[plane.PowerSlotIndex].GetType().ToString() + "   Ammo: " + plane.PowerUps[plane.PowerSlotIndex].AmmoCount.ToString(), new Vector2(200, 730), Color.Red);
+                spriteBatch.DrawString(GUIFont, "Score: " + GameState.Score, new Vector2(900, GameState.ActualScreenHeight - 30), Color.Red);
+                spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, GameState.ActualScreenHeight - 30), Color.Red);
+                spriteBatch.DrawString(GUIFont, "Power Up: " + plane.PowerUps[plane.PowerSlotIndex].GetType().ToString() + "   Ammo: " + plane.PowerUps[plane.PowerSlotIndex].AmmoCount.ToString(), new Vector2(200, GameState.ActualScreenHeight - 30), Color.Red);
                 spriteBatch.End();
             }
 
@@ -457,7 +457,7 @@ namespace papercut
                     spriteBatch.DrawString(GUIFont, "I want to thank our family and friends for their support and patience during our time away", new Vector2(10, 130), Color.Black);
                     spriteBatch.DrawString(GUIFont, "from them. You guys rock.", new Vector2(10, 150), Color.Black);
                     spriteBatch.Draw(TextureBank.Kitten, new Vector2(450, 250), null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
-                    spriteBatch.DrawString(GUIFont, "Code & Art -       Larry (Hipster Hockey Puck) Martian", new Vector2(10, 450), Color.Black);
+                    spriteBatch.DrawString(GUIFont, "Code & Art -       Larry (Hipster Hockey Puck) Martin", new Vector2(10, 450), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Code -             Matt (Lord of the Level) Johnson", new Vector2(10, 470), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Code & Sound -     Aaron (Punching Enums) Van Prooyen", new Vector2(10, 490), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Art & Porting -    Ben (Bald Spectator) Werden ", new Vector2(10, 510), Color.Black);
