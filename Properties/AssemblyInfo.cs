@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("LD32_OSTGame")]
-[assembly: AssemblyProduct("LD32_OSTGame")]
+[assembly: AssemblyTitle("papercut")]
+[assembly: AssemblyProduct("papercut")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("853341ec-ded5-476b-b0e8-a4ab0c3f2347")]
+[assembly: Guid("9ff1a431-f283-4df5-b0f3-2837a68fdc54")]
 
 // Version information for an assembly consists of the following four values:
 //

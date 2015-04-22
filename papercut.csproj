@@ -5,30 +5,15 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{25B3BD52-EE93-4DF6-9D3E-895DFA17D502}</ProjectGuid>
+    <ProjectGuid>{0BADA96A-A2F9-4F5A-9467-0BD85BE9A152}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LD32_OSTGame</RootNamespace>
-    <AssemblyName>LD32_OSTGame</AssemblyName>
+    <RootNamespace>papercut</RootNamespace>
+    <AssemblyName>papercut</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <MonoGameContentBuilderExe>
     </MonoGameContentBuilderExe>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -50,40 +35,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Particle.cs" />
-    <Compile Include="Powerup.cs" />
-    <Compile Include="Plane.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="Kitten.cs" />
+    <Compile Include="KittenEnt.cs" />
+    <Compile Include="Particle.cs" />
     <Compile Include="PhysicsBody.cs" />
+    <Compile Include="Plane.cs" />
+    <Compile Include="Powerup.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Kitten.cs" />
     <Compile Include="Razor.cs" />
-    <Compile Include="KittenEnt.cs" />
     <Compile Include="RazorEnt.cs" />
     <Compile Include="Shard.cs" />
     <Compile Include="ShardEnt.cs" />
+    <Compile Include="Tape.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.3.0.2141, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MSBuildProgramFiles32)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon.ico" />
+    <Content Include="Icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="RawContent\Ball1.png" />
     <Content Include="RawContent\Ball1_Med.png" />
     <Content Include="RawContent\Ball1_Med2.png" />
@@ -94,15 +78,19 @@
     <Content Include="RawContent\Ball2_Small.png" />
     <Content Include="RawContent\bg1024.png" />
     <Content Include="RawContent\cat.wav" />
+    <Content Include="RawContent\HappyRazorBladePickup.png" />
     <Content Include="RawContent\hit.wav" />
+    <Content Include="RawContent\Kitten.png" />
+    <Content Include="RawContent\KittenBullet.png" />
+    <Content Include="RawContent\Particle1.png" />
     <Content Include="RawContent\pew.wav" />
     <Content Include="RawContent\pew2.wav" />
     <Content Include="RawContent\pew3.wav" />
-    <Content Include="RawContent\HappyRazorBladePickup.png" />
     <Content Include="RawContent\plane.png" />
     <Content Include="RawContent\plane2.png" />
     <Content Include="RawContent\plane3.png" />
     <Content Include="RawContent\plane4.png" />
+    <Content Include="RawContent\Razor.png" />
     <Content Include="RawContent\rip.wav" />
     <Content Include="RawContent\Shard.png" />
     <Content Include="RawContent\splash1080.png" />
@@ -110,41 +98,33 @@
     <Content Include="RawContent\splash768.png" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb">
-      <SubType>Designer</SubType>
-    </MonoGameContentReference>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\plane.xnb">
+    <None Include="Content\Ball1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball1.xnb">
+    </None>
+    <None Include="Content\Ball1_Med.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball1_Med.xnb">
+    </None>
+    <None Include="Content\Ball1_Med2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball1_Med2.xnb">
+    </None>
+    <None Include="Content\Ball1_Small.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball1_Small.xnb">
+    </None>
+    <None Include="Content\Ball2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball2.xnb">
+    </None>
+    <None Include="Content\Ball2_Med.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball2_Med.xnb">
+    </None>
+    <None Include="Content\Ball2_Med2.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball2_Med2.xnb">
+    </None>
+    <None Include="Content\Ball2_Small.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Ball2_Small.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Shard.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Content\bg1024.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -154,18 +134,21 @@
     <None Include="Content\GUIFont.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\HappyRazorBladePickup.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\hit.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Content\Particle1.xnb">
+    <None Include="Content\Kitten.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Kitten.xnb">
+    </None>
+    <None Include="Content\KittenBullet.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\KittenBullet.xnb">
+    </None>
+    <None Include="Content\Particle1.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Content\pew.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -173,6 +156,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\pew3.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\plane.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Content\plane2.xnb">
@@ -184,47 +170,50 @@
     <None Include="Content\plane4.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Content\Razor.xnb">
+    <None Include="Content\Razor.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Content\rip.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Content\HappyRazorBladePickup.xnb">
+    <None Include="Content\Shard.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
     <None Include="Content\splash768.xnb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
     <None Include="RawContent\Ball1.xnb" />
-    <Content Include="RawContent\GUIFont.spritefont" />
+    <None Include="RawContent\Ball1_Med.xnb" />
+    <None Include="RawContent\Ball1_Med2.xnb" />
+    <None Include="RawContent\Ball1_Small.xnb" />
+    <None Include="RawContent\Ball2.xnb" />
+    <None Include="RawContent\Ball2_Med.xnb" />
+    <None Include="RawContent\Ball2_Med2.xnb" />
+    <None Include="RawContent\Ball2_Small.xnb" />
+    <None Include="RawContent\bg1024.xnb" />
+    <None Include="RawContent\cat.xnb" />
+    <None Include="RawContent\GUIFont.spritefont" />
+    <None Include="RawContent\GUIFont.xnb" />
+    <None Include="RawContent\HappyRazorBladePickup.pdn" />
+    <None Include="RawContent\HappyRazorBladePickup.xnb" />
+    <None Include="RawContent\hit.xnb" />
     <None Include="RawContent\kenvector_future.ttf" />
+    <None Include="RawContent\Kitten.xnb" />
+    <None Include="RawContent\KittenBullet.xnb" />
     <None Include="RawContent\PaperBall.pdn" />
+    <None Include="RawContent\Particle1.xnb" />
+    <None Include="RawContent\pew.xnb" />
+    <None Include="RawContent\pew2.xnb" />
+    <None Include="RawContent\pew3.xnb" />
     <None Include="RawContent\plane.xnb" />
+    <None Include="RawContent\plane2.xnb" />
+    <None Include="RawContent\plane3.pdn" />
+    <None Include="RawContent\plane3.xnb" />
+    <None Include="RawContent\plane4.pdn" />
+    <None Include="RawContent\plane4.xnb" />
+    <None Include="RawContent\Razor.xnb" />
+    <None Include="RawContent\rip.xnb" />
     <None Include="RawContent\Shard.xnb" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 4.5</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

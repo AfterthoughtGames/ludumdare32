@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LD32_OSTGame
+namespace papercut
 {
     // all balls are made with this class just switch out the image and health
     public class Ball : Entity

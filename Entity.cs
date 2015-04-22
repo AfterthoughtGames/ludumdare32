@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Content;
 
-namespace LD32_OSTGame
+namespace papercut
 {
     public enum Direction
     {

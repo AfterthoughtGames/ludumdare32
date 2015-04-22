@@ -5,9 +5,9 @@ using System.Text;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace LD32_OSTGame
+namespace papercut
 {
-    public class Tape : PowerUp
+    public class Shard : PowerUp
     {
         public void LoadContent(ContentManager cm)
         {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace LD32_OSTGame
+namespace papercut
 {
 #if WINDOWS || LINUX
     /// <summary>

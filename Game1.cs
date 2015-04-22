@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using Microsoft.Xna.Framework.Audio;
 
-namespace LD32_OSTGame
+namespace papercut
 {
     /// <summary>
     /// This is the main type for your game
@@ -25,7 +25,7 @@ namespace LD32_OSTGame
         RenderTarget2D bigScreen;
 
         public static List<Entity> Entites = new List<Entity>();
-        public static List<Particle> Particles = new List<Particle>(); 
+        public static List<Particle> Particles = new List<Particle>();
         private Texture2D planeImg;
         private Plane plane;
         public static Texture2D razorImg;
@@ -65,8 +65,8 @@ namespace LD32_OSTGame
         public static bool ActivePlay = false;
         public static bool ActiveInfo = false;
 
-        public static int  BallCount = 0;
-        
+        public static int BallCount = 0;
+
         public Game1()
             : base()
         {
@@ -74,7 +74,7 @@ namespace LD32_OSTGame
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
             graphics.ApplyChanges();
-            
+
             Content.RootDirectory = "Content";
         }
 
@@ -134,11 +134,11 @@ namespace LD32_OSTGame
             SplashImg = Content.Load<Texture2D>("splash768");
             BgWood = Content.Load<Texture2D>("bg1024");
             CatSound = Content.Load<SoundEffect>("cat");
-            
+
             Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
-            
+
             var razorStart = new Vector2(500.0f, 500.0f);
-            
+
 
             // Audio
             Pew = Content.Load<SoundEffect>("pew2");
@@ -175,7 +175,7 @@ namespace LD32_OSTGame
                     populateEntities();
                 }
 
-                
+
 
                 #region Keyboard
                 KeyboardState currentKeyboard = Keyboard.GetState();
@@ -408,7 +408,7 @@ namespace LD32_OSTGame
                         ActiveInfo = false;
                     }
                 }
-                
+
                 if (currentPad.Buttons.A == ButtonState.Pressed)
                 {
                     ActiveSplash = false;
@@ -449,18 +449,18 @@ namespace LD32_OSTGame
                 GraphicsDevice.Clear(Color.Black);
                 spriteBatch.Begin();
                 //spriteBatch.Draw(BgWood, Vector2.Zero, Color.White);
-                
+
                 //razor.Draw(gameTime, spriteBatch);
                 plane.Draw(spriteBatch, gameTime);
                 spriteBatch.Draw(bigScreen, new Vector2(-350, -350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
-                
+
                 spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Power Up: " + plane.PowerUps[plane.PowerSlotIndex].GetType().ToString() + "   Ammo: " + plane.PowerUps[plane.PowerSlotIndex].AmmoCount.ToString(), new Vector2(200, 730), Color.Red);
                 spriteBatch.End();
             }
 
-            if(ActiveSplash == true)
+            if (ActiveSplash == true)
             {
                 GraphicsDevice.Clear(Color.White);
                 spriteBatch.Begin();
@@ -478,7 +478,7 @@ namespace LD32_OSTGame
                     spriteBatch.DrawString(GUIFont, "adventures.", new Vector2(10, 90), Color.Black);
                     spriteBatch.DrawString(GUIFont, "I want to thank our family and friends for their support and patience during our time away", new Vector2(10, 130), Color.Black);
                     spriteBatch.DrawString(GUIFont, "from them. You guys rock.", new Vector2(10, 150), Color.Black);
-                    spriteBatch.Draw(Kitten, new Vector2(450, 250), null ,Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(Kitten, new Vector2(450, 250), null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
                     spriteBatch.DrawString(GUIFont, "Code & Art -       Larry (Hipster Hockey Puck) Martian", new Vector2(10, 450), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Code -             Matt (Lord of the Level) Johnson", new Vector2(10, 470), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Code & Sound -     Aaron (Punching Enums) Van Prooyen", new Vector2(10, 490), Color.Black);
@@ -505,7 +505,7 @@ Art & Porting – Ben “Bald Spectator” Werden
 
         private void drawEntities(SpriteBatch spriteBatch, GameTime gameTime)
         {
-            foreach(Entity ent in Entites)
+            foreach (Entity ent in Entites)
             {
                 ent.Draw(gameTime, spriteBatch);
             }
@@ -522,7 +522,7 @@ Art & Porting – Ben “Bald Spectator” Werden
         private void populateEntities()
         {
             Random rand = new Random(DateTime.Now.Millisecond);
-            
+
             //make rocks
             for (int i = 0; i < 4; i++)
             {
