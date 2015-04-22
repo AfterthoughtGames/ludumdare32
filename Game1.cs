@@ -462,14 +462,10 @@ namespace papercut
                     spriteBatch.DrawString(GUIFont, "Code & Sound -     Aaron (Punching Enums) Van Prooyen", new Vector2(10, 490), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Art & Porting -    Ben (Bald Spectator) Werden ", new Vector2(10, 510), Color.Black);
                     /*
-                     * 
-
-Code & Art – Larry “Hipster Hockey Puck” Martian
-Code – Aaron “Punching Enums” Van Prooyen
-Code –Matt “Lord of the Level” Johnson
-Art & Porting – Ben “Bald Spectator” Werden 
-
-                     * 
+                     *  Code & Art – Larry “Hipster Hockey Puck” Martian
+                     *  Code – Aaron “Punching Enums” Van Prooyen
+                     *  Code –Matt “Lord of the Level” Johnson
+                     *  Art & Porting – Ben “Bald Spectator” Werden 
                      */
                 }
                 spriteBatch.End();
