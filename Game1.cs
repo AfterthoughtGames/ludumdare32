@@ -14,60 +14,22 @@ namespace papercut
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        KeyboardState PreviousKeyboard;
-        MouseState PreviousMouse;
-        GamePadState PreviousGamePad;
-        DateTime LimitedUpdateTime;
 
+        KeyboardState PreviousKeyboard;
+        //MouseState PreviousMouse;
+        GamePadState PreviousGamePad;
+        
+        DateTime LimitedUpdateTime;
         int limitDelay = 50;
-        public static int border = 350;
+
+        private SpriteFont GUIFont;
+        private bool SwitchRes = false;
 
         RenderTarget2D bigScreen;
 
+        private Plane plane;
         public static List<Entity> Entites = new List<Entity>();
         public static List<Particle> Particles = new List<Particle>();
-        private Texture2D planeImg;
-        private Plane plane;
-        public static Texture2D razorImg;
-        public static Texture2D RazorEntImg;
-        private Razor razor;
-
-        private int resolutionOption = 0;
-
-        private Texture2D Ball1;
-        public static Texture2D ShardImg;
-        public static Texture2D Particle1;
-        private SpriteFont GUIFont;
-        public static SoundEffect Pew;
-        public static SoundEffect Hit;
-        public static SoundEffect Rip;
-        public static SoundEffect CatSound;
-
-        public static int ScreenWidth { get; set; }
-        public static int ScreenHeight { get; set; }
-        public static int ActualScreenWidth { get; set; }
-        public static int ActualScreenHeight { get; set; }
-        public static bool DebugMode { get; set; }
-        public static Texture2D DebugBoxRect { get; set; }
-        public static int Score { get; set; }
-
-        public static Texture2D Plane2Img { get; set; }
-        public static Texture2D Plane3Img { get; set; }
-        public static Texture2D Plane4Img { get; set; }
-
-        public static Texture2D Kitten { get; set; }
-        public static Texture2D KittenBullet { get; set; }
-
-        private Texture2D SplashImg { get; set; }
-        private Texture2D BgWood { get; set; }
-
-        public static bool ActiveSplash = true;
-        public static bool ActivePlay = false;
-        public static bool ActiveInfo = false;
-
-        public static int BallCount = 0;
-
-        private bool SwitchRes = false;
 
         public Game1()
             : base()
@@ -103,51 +65,51 @@ namespace papercut
         protected override void LoadContent()
         {
             Window.Title = "Paper Cut - LD32";
-            DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
+            TextureBank.DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
-            DebugBoxRect.SetData(data);
+            TextureBank.DebugBoxRect.SetData(data);
 
-            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + GameState.border, graphics.PreferredBackBufferHeight + GameState.border);
 
             GUIFont = Content.Load<SpriteFont>("GUIFont");
 
-            Game1.ScreenWidth = bigScreen.Bounds.Width;
-            Game1.ScreenHeight = bigScreen.Bounds.Height;
-            ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
-            ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
+            GameState.ScreenWidth = bigScreen.Bounds.Width;
+            GameState.ScreenHeight = bigScreen.Bounds.Height;
+            GameState.ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
+            GameState.ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             //load Balls
-            Ball1 = Content.Load<Texture2D>("Ball1");
-            ShardImg = Content.Load<Texture2D>("Shard");
-            RazorEntImg = Content.Load<Texture2D>("Razor");
+            TextureBank.Ball1 = Content.Load<Texture2D>("Ball1");
+            TextureBank.ShardImg = Content.Load<Texture2D>("Shard");
+            TextureBank.RazorEntImg = Content.Load<Texture2D>("Razor");
 
-            Kitten = Content.Load<Texture2D>("Kitten");
-            KittenBullet = Content.Load<Texture2D>("KittenBullet");
+            TextureBank.Kitten = Content.Load<Texture2D>("Kitten");
+            TextureBank.KittenBullet = Content.Load<Texture2D>("KittenBullet");
 
-            Particle1 = Content.Load<Texture2D>("Particle1");
+            TextureBank.Particle1 = Content.Load<Texture2D>("Particle1");
 
-            planeImg = Content.Load<Texture2D>("plane");
-            Plane2Img = Content.Load<Texture2D>("plane2");
-            Plane3Img = Content.Load<Texture2D>("plane3");
-            Plane4Img = Content.Load<Texture2D>("plane4");
-            razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
-            SplashImg = Content.Load<Texture2D>("splash768");
-            BgWood = Content.Load<Texture2D>("bg1024");
-            CatSound = Content.Load<SoundEffect>("cat");
+            TextureBank.planeImg = Content.Load<Texture2D>("plane");
+            TextureBank.Plane2Img = Content.Load<Texture2D>("plane2");
+            TextureBank.Plane3Img = Content.Load<Texture2D>("plane3");
+            TextureBank.Plane4Img = Content.Load<Texture2D>("plane4");
+            TextureBank.razorImg = Content.Load<Texture2D>("HappyRazorBladePickup");
+            TextureBank.SplashImg = Content.Load<Texture2D>("splash768");
+            TextureBank.BgWood = Content.Load<Texture2D>("bg1024");
+            SoundBank.CatSound = Content.Load<SoundEffect>("cat");
 
-            Vector2 textureCenter = new Vector2(planeImg.Width / 2, planeImg.Height / 2);
+            Vector2 textureCenter = new Vector2(TextureBank.planeImg.Width / 2, TextureBank.planeImg.Height / 2);
 
             var razorStart = new Vector2(500.0f, 500.0f);
 
 
             // Audio
-            Pew = Content.Load<SoundEffect>("pew2");
-            Hit = Content.Load<SoundEffect>("hit");
-            Rip = Content.Load<SoundEffect>("rip");
+            SoundBank.Pew = Content.Load<SoundEffect>("pew2");
+            SoundBank.Hit = Content.Load<SoundEffect>("hit");
+            SoundBank.Rip = Content.Load<SoundEffect>("rip");
 
             //populateEntities();
         }
@@ -172,14 +134,12 @@ namespace papercut
                 Exit();
 
             #region ActivePlay
-            if (ActivePlay == true)
+            if (GameState.ActivePlay == true)
             {
-                if (BallCount == 0)
+                if (GameState.BallCount == 0)
                 {
                     populateEntities();
                 }
-
-
 
                 #region Keyboard
                 KeyboardState currentKeyboard = Keyboard.GetState();
@@ -223,28 +183,28 @@ namespace papercut
                 // util keys
                 if (currentKeyboard.IsKeyDown(Keys.F12) && !PreviousKeyboard.IsKeyDown(Keys.F12))
                 {
-                    if (Game1.DebugMode == true)
+                    if (GameState.DebugMode == true)
                     {
-                        Game1.DebugMode = false;
+                        GameState.DebugMode = false;
                     }
                     else
                     {
-                        Game1.DebugMode = true;
+                        GameState.DebugMode = true;
                     }
                 }
 
                 if (currentKeyboard.IsKeyDown(Keys.F11) && !PreviousKeyboard.IsKeyDown(Keys.F11))
                 {
-                    if (resolutionOption <= 3)
+                    if (GameState.resolutionOption <= 3)
                     {
-                        resolutionOption++;
+                        GameState.resolutionOption++;
                     }
                     else
                     {
-                        resolutionOption = 0;
+                        GameState.resolutionOption = 0;
                     }
 
-                    switch (resolutionOption)
+                    switch (GameState.resolutionOption)
                     {
                         case 1:
                             graphics.PreferredBackBufferWidth = 1280;
@@ -397,33 +357,33 @@ namespace papercut
             #endregion
 
             #region ActiveSplash
-            if (ActiveSplash == true)
+            if (GameState.ActiveSplash == true)
             {
                 KeyboardState currentKeyboard = Keyboard.GetState();
                 GamePadState currentPad = GamePad.GetState(PlayerIndex.One);
                 if (currentKeyboard.IsKeyDown(Keys.Space))
                 {
-                    ActiveSplash = false;
+                    GameState.ActiveSplash = false;
                     Entites.Clear();
-                    BallCount = 0;
+                    GameState.BallCount = 0;
                     Particles.Clear();
                 }
 
                 if ((currentKeyboard.IsKeyDown(Keys.I) && !PreviousKeyboard.IsKeyDown(Keys.I)) || (currentPad.Buttons.B == ButtonState.Pressed && PreviousGamePad.Buttons.B == ButtonState.Released))
                 {
-                    if (ActiveInfo == false)
+                    if (GameState.ActiveInfo == false)
                     {
-                        ActiveInfo = true;
+                        GameState.ActiveInfo = true;
                     }
                     else
                     {
-                        ActiveInfo = false;
+                        GameState.ActiveInfo = false;
                     }
                 }
 
                 if (currentPad.Buttons.A == ButtonState.Pressed)
                 {
-                    ActiveSplash = false;
+                    GameState.ActiveSplash = false;
                 }
 
                 PreviousKeyboard = currentKeyboard;
@@ -431,7 +391,7 @@ namespace papercut
             }
             #endregion
 
-            if (ActiveSplash == false && ActivePlay == false)
+            if (GameState.ActiveSplash == false && GameState.ActivePlay == false)
             {
                 SetupGame();
             }
@@ -451,7 +411,7 @@ namespace papercut
                 SwitchRes = false;
             }
 
-            if (ActivePlay == true)
+            if (GameState.ActivePlay == true)
             {
                 GraphicsDevice.SetRenderTarget(bigScreen);
                 GraphicsDevice.Clear(Color.Black);
@@ -472,19 +432,19 @@ namespace papercut
                 plane.Draw(spriteBatch, gameTime);
                 spriteBatch.Draw(bigScreen, new Vector2(-350, -350), null, null, null, 0, null, Color.White, SpriteEffects.None, 0);
 
-                spriteBatch.DrawString(GUIFont, "Score: " + Game1.Score, new Vector2(900, 730), Color.Red);
+                spriteBatch.DrawString(GUIFont, "Score: " + GameState.Score, new Vector2(900, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Health: " + plane.Health, new Vector2(30, 730), Color.Red);
                 spriteBatch.DrawString(GUIFont, "Power Up: " + plane.PowerUps[plane.PowerSlotIndex].GetType().ToString() + "   Ammo: " + plane.PowerUps[plane.PowerSlotIndex].AmmoCount.ToString(), new Vector2(200, 730), Color.Red);
                 spriteBatch.End();
             }
 
-            if (ActiveSplash == true)
+            if (GameState.ActiveSplash == true)
             {
                 GraphicsDevice.Clear(Color.White);
                 spriteBatch.Begin();
-                if (ActiveInfo != true)
+                if (GameState.ActiveInfo != true)
                 {
-                    spriteBatch.Draw(SplashImg, Vector2.Zero, Color.White);
+                    spriteBatch.Draw(TextureBank.SplashImg, Vector2.Zero, Color.White);
                     spriteBatch.DrawString(GUIFont, "Press Space(A) to Start or I(B) for Information", new Vector2(105, 720), Color.Black);
                 }
                 else
@@ -496,7 +456,7 @@ namespace papercut
                     spriteBatch.DrawString(GUIFont, "adventures.", new Vector2(10, 90), Color.Black);
                     spriteBatch.DrawString(GUIFont, "I want to thank our family and friends for their support and patience during our time away", new Vector2(10, 130), Color.Black);
                     spriteBatch.DrawString(GUIFont, "from them. You guys rock.", new Vector2(10, 150), Color.Black);
-                    spriteBatch.Draw(Kitten, new Vector2(450, 250), null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+                    spriteBatch.Draw(TextureBank.Kitten, new Vector2(450, 250), null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
                     spriteBatch.DrawString(GUIFont, "Code & Art -       Larry (Hipster Hockey Puck) Martian", new Vector2(10, 450), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Code -             Matt (Lord of the Level) Johnson", new Vector2(10, 470), Color.Black);
                     spriteBatch.DrawString(GUIFont, "Code & Sound -     Aaron (Punching Enums) Van Prooyen", new Vector2(10, 490), Color.Black);
@@ -544,12 +504,12 @@ Art & Porting – Ben “Bald Spectator” Werden
             //make rocks
             for (int i = 0; i < 4; i++)
             {
-                Ball ball = new Ball(Ball1, 20, new Vector2(rand.Next(0, bigScreen.Width - border), rand.Next(0, bigScreen.Height)), 1,
+                Ball ball = new Ball(TextureBank.Ball1, 20, new Vector2(rand.Next(0, bigScreen.Width - GameState.border), rand.Next(0, bigScreen.Height)), 1,
                     new Vector2((float)rand.Next(-200, 200), (float)rand.Next(-200, 200)), (float)rand.Next(-100, 100) / 100.0f);
                 ball.Body = ball.ReturnNewBodyByScale(1);
 
                 Entites.Add(ball);
-                BallCount++;
+                GameState.BallCount++;
             }
 
         }
@@ -558,21 +518,21 @@ Art & Porting – Ben “Bald Spectator” Werden
         {
             var velocity = new Vector2(0.0f, 0.0f);
             Vector2 screenCenter = new Vector2(bigScreen.Width / 2, bigScreen.Height / 2);
-            plane = new Plane(planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
+            plane = new Plane(TextureBank.planeImg, 100, screenCenter, 1.0f, velocity, 0.0f);
 
-            Score = 0;
+            GameState.Score = 0;
 
             populateEntities();
-            ActivePlay = true;
+            GameState.ActivePlay = true;
         }
 
         private void ScaleBuffer()
         {
-            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
-            Game1.ScreenWidth = bigScreen.Bounds.Width;
-            Game1.ScreenHeight = bigScreen.Bounds.Height;
-            ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
-            ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
+            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + GameState.border, graphics.PreferredBackBufferHeight + GameState.border);
+            GameState.ScreenWidth = bigScreen.Bounds.Width;
+            GameState.ScreenHeight = bigScreen.Bounds.Height;
+            GameState.ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
+            GameState.ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
         }
     }
 }

@@ -7,11 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace papercut
 {
-    public class RazorEnt : Projectile
+    public class KittenEnt : Projectile
     {
         float imageRotation;
 
-        public RazorEnt(Vector2 vol, float roatation, Vector2 pos, Guid entID, Texture2D img, float randomness)
+        public KittenEnt(Vector2 vol, float roatation, Vector2 pos, Guid entID, Texture2D img, float randomness)
         {
             this.Velocity = vol;
             this.Rotation = roatation;
@@ -21,6 +21,7 @@ namespace papercut
             this.Health = 1;
             this.Scale = randomness;
             this.imageRotation = 360f * randomness;
+            
 
             this.Body = new Rectangle((int)pos.X, (int)pos.Y, img.Width, img.Height);
 
@@ -32,7 +33,7 @@ namespace papercut
             Position += Velocity;
             this.Body = this.ReturnNewBody();
 
-            if (Position.X < 0 || Position.X > Game1.ScreenWidth || Position.Y < 0 || Position.Y > Game1.ScreenHeight) this.Health = 0;
+            if (Position.X < 0 || Position.X > GameState.ScreenWidth || Position.Y < 0 || Position.Y > GameState.ScreenHeight) this.Health = 0;
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch batch)

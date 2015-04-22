@@ -45,36 +45,36 @@ namespace papercut
         {
             if(PowerUps[PowerSlotIndex].GetType() == typeof(Shard))
             {
-                Game1.Pew.Play();
+                SoundBank.Pew.Play();
 
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
-                    Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.ShardImg, (float)rand.NextDouble()));
+                    Game1.Entites.Add(new ShardEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, TextureBank.ShardImg, (float)rand.NextDouble()));
                 }
             }
 
               if (PowerUps[PowerSlotIndex].GetType() == typeof(Kitten))
             {
-                Game1.CatSound.Play();
+                SoundBank.CatSound.Play();
 
                 PowerUps[PowerSlotIndex].AmmoCount--;
 
                 PowerUps[PowerSlotIndex].AmmoCount--;
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
-                    Game1.Entites.Add(new KittenEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.KittenBullet, (float)rand.NextDouble()));
+                    Game1.Entites.Add(new KittenEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, TextureBank.KittenBullet, (float)rand.NextDouble()));
                 }
             }
 
             if(PowerUps[PowerSlotIndex].GetType() == typeof(Razor))
             {
-                Game1.Rip.Play();
+                SoundBank.Rip.Play();
 
                 PowerUps[PowerSlotIndex].AmmoCount--;
 
                 if (Lastfired.TotalMilliseconds + 30 <= time.TotalGameTime.TotalMilliseconds)
                 {
-                    Game1.Entites.Add(new RazorEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, Game1.RazorEntImg, (float)rand.NextDouble()));
+                    Game1.Entites.Add(new RazorEnt(this.Velocity, this.Rotation, this.Position, this.PlaneID, TextureBank.RazorEntImg, (float)rand.NextDouble()));
                 }
             }
 
@@ -168,17 +168,17 @@ namespace papercut
 
             if(Health < 76 && Health > 49)
             {
-                image = Game1.Plane2Img;
+                image = TextureBank.Plane2Img;
             }
 
             if (Health < 50 && Health > 24)
             {
-                image = Game1.Plane3Img;
+                image = TextureBank.Plane3Img;
             }
 
             if (Health < 25 && Health > 0)
             {
-                image = Game1.Plane4Img;
+                image = TextureBank.Plane4Img;
             }
         }
 
@@ -200,8 +200,8 @@ namespace papercut
 
             if(Health <= 0)
             {
-                Game1.ActivePlay = false;
-                Game1.ActiveSplash = true;
+                GameState.ActivePlay = false;
+                GameState.ActiveSplash = true;
             }
 
             for(int powerIndex = 0; powerIndex < PowerUps.Count; powerIndex++)

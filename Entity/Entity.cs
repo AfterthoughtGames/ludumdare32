@@ -44,9 +44,9 @@ namespace papercut
 
         public virtual void Draw(GameTime gameTime, SpriteBatch batch) 
         {
-            if (Game1.DebugMode == true)
+            if (GameState.DebugMode == true)
             {
-                batch.Draw(Game1.DebugBoxRect, this.Body, Color.White);
+                batch.Draw(TextureBank.DebugBoxRect, this.Body, Color.White);
             }  
         }
 
@@ -107,24 +107,24 @@ namespace papercut
         {
             float width = image.Width * Scale;
 
-            if (Position.X < Game1.border - width/2)
+            if (Position.X < GameState.border - width/2)
             {
-                Position = new Vector2(Game1.ActualScreenWidth + Game1.border - width / 2 + width, Position.Y);
+                Position = new Vector2(GameState.ActualScreenWidth + GameState.border - width / 2 + width, Position.Y);
             }
 
-            if (Position.X > Game1.ActualScreenWidth + Game1.border - width / 2 + width)
+            if (Position.X > GameState.ActualScreenWidth + GameState.border - width / 2 + width)
             {
-                Position = new Vector2(Game1.border - width / 2, Position.Y);
+                Position = new Vector2(GameState.border - width / 2, Position.Y);
             }
 
-            if (Position.Y < Game1.border - width / 2)
+            if (Position.Y < GameState.border - width / 2)
             {
-                Position = new Vector2(Position.X, Game1.ActualScreenHeight + Game1.border - width / 2 + width);
+                Position = new Vector2(Position.X, GameState.ActualScreenHeight + GameState.border - width / 2 + width);
             }
 
-            if (Position.Y > Game1.ActualScreenHeight + Game1.border - width / 2 + width)
+            if (Position.Y > GameState.ActualScreenHeight + GameState.border - width / 2 + width)
             {
-                Position = new Vector2(Position.X, Game1.border - width / 2);
+                Position = new Vector2(Position.X, GameState.border - width / 2);
             }
         }
          

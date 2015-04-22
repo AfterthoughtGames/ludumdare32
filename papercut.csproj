@@ -38,23 +38,26 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Ball.cs" />
-    <Compile Include="Entity.cs" />
+    <Compile Include="Entity\Ball.cs" />
+    <Compile Include="Entity\Entity.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Kitten.cs" />
-    <Compile Include="KittenEnt.cs" />
-    <Compile Include="Particle.cs" />
-    <Compile Include="PhysicsBody.cs" />
-    <Compile Include="Plane.cs" />
-    <Compile Include="Powerup.cs" />
+    <Compile Include="Entity\Powerup\Kitten.cs" />
+    <Compile Include="Entity\Projectile\KittenEnt.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="Entity\Particle.cs" />
+    <Compile Include="Entity\PhysicsBody.cs" />
+    <Compile Include="Entity\Plane.cs" />
+    <Compile Include="Entity\Powerup\Powerup.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Projectile.cs" />
+    <Compile Include="Entity\Projectile\Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Razor.cs" />
-    <Compile Include="RazorEnt.cs" />
-    <Compile Include="Shard.cs" />
-    <Compile Include="ShardEnt.cs" />
-    <Compile Include="Tape.cs" />
+    <Compile Include="Entity\Powerup\Razor.cs" />
+    <Compile Include="Entity\Projectile\RazorEnt.cs" />
+    <Compile Include="Entity\Powerup\Shard.cs" />
+    <Compile Include="Entity\Projectile\ShardEnt.cs" />
+    <Compile Include="Entity\Powerup\Tape.cs" />
+    <Compile Include="SoundBank.cs" />
+    <Compile Include="TextureBank.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -214,6 +217,7 @@
     <None Include="RawContent\rip.xnb" />
     <None Include="RawContent\Shard.xnb" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
