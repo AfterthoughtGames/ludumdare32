@@ -4,7 +4,7 @@ This game was made with a 3 1/2  person crew in 16 hours during Ludum Dare 32. T
 
 I want to thank our family and friends for their support and patience during our time away from them, You guys rock.
 
-Code & Art – Larry “Hipster Hockey Puck” Martian
+Code & Art – Larry “Hipster Hockey Puck” Martin
 
 Code – Aaron “Punching Enums” Van Prooyen
 
