@@ -67,12 +67,16 @@ namespace papercut
 
         public static int BallCount = 0;
 
+        private bool SwitchRes = false;
+
         public Game1()
             : base()
         {
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
+            //graphics.PreferredBackBufferWidth = 1920;
+            //graphics.PreferredBackBufferHeight = 1080;
             graphics.ApplyChanges();
 
             Content.RootDirectory = "Content";
@@ -247,22 +251,30 @@ namespace papercut
                             graphics.PreferredBackBufferHeight = 720;
                             graphics.ToggleFullScreen();
                             graphics.ApplyChanges();
+                            //bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+                            SwitchRes = true;
                             break;
                         case 2:
                             graphics.PreferredBackBufferWidth = 1920;
                             graphics.PreferredBackBufferHeight = 1080;
                             graphics.ApplyChanges();
+                            //bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+                            SwitchRes = true;
                             break;
                         case 3:
                             graphics.PreferredBackBufferWidth = 1024;
                             graphics.PreferredBackBufferHeight = 768;
                             graphics.ApplyChanges();
+                            //bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+                            SwitchRes = true;
                             break;
                         case 0:
                             graphics.PreferredBackBufferWidth = 1024;
                             graphics.PreferredBackBufferHeight = 768;
                             graphics.ToggleFullScreen();
                             graphics.ApplyChanges();
+                            //bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+                            SwitchRes = true;
                             break;
                         default:
                             break;
@@ -433,6 +445,12 @@ namespace papercut
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
+            if(SwitchRes)
+            {
+                ScaleBuffer();
+                SwitchRes = false;
+            }
+
             if (ActivePlay == true)
             {
                 GraphicsDevice.SetRenderTarget(bigScreen);
@@ -546,6 +564,15 @@ Art & Porting – Ben “Bald Spectator” Werden
 
             populateEntities();
             ActivePlay = true;
+        }
+
+        private void ScaleBuffer()
+        {
+            bigScreen = new RenderTarget2D(graphics.GraphicsDevice, graphics.PreferredBackBufferWidth + border, graphics.PreferredBackBufferHeight + border);
+            Game1.ScreenWidth = bigScreen.Bounds.Width;
+            Game1.ScreenHeight = bigScreen.Bounds.Height;
+            ActualScreenHeight = graphics.GraphicsDevice.Viewport.Height;
+            ActualScreenWidth = graphics.GraphicsDevice.Viewport.Width;
         }
     }
 }
