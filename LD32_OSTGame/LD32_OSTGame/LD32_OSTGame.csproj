@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{25B3BD52-EE93-4DF6-9D3E-895DFA17D502}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -52,10 +50,6 @@
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Particle.cs" />
     <Compile Include="Powerup.cs" />
@@ -75,12 +69,11 @@
     <Compile Include="ShardEnt.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.3.0.2141, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
@@ -95,6 +88,9 @@
     <Content Include="RawContent\bg1024.png" />
     <Content Include="RawContent\cat.wav" />
     <Content Include="RawContent\hit.wav" />
+    <Content Include="RawContent\Kitten.png" />
+    <Content Include="RawContent\KittenBullet.png" />
+    <Content Include="RawContent\Particle1.png" />
     <Content Include="RawContent\pew.wav" />
     <Content Include="RawContent\pew2.wav" />
     <Content Include="RawContent\pew3.wav" />
@@ -103,6 +99,7 @@
     <Content Include="RawContent\plane2.png" />
     <Content Include="RawContent\plane3.png" />
     <Content Include="RawContent\plane4.png" />
+    <Content Include="RawContent\Razor.png" />
     <Content Include="RawContent\rip.wav" />
     <Content Include="RawContent\Shard.png" />
     <Content Include="RawContent\splash1080.png" />
@@ -197,12 +194,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="RawContent\Ball1.xnb" />
     <Content Include="RawContent\GUIFont.spritefont" />
     <None Include="RawContent\kenvector_future.ttf" />
-    <None Include="RawContent\PaperBall.pdn" />
-    <None Include="RawContent\plane.xnb" />
-    <None Include="RawContent\Shard.xnb" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

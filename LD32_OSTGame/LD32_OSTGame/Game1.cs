@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Input.Touch;
+using Microsoft.Devices.Sensors;
 
 namespace LD32_OSTGame
 {
@@ -99,6 +101,7 @@ namespace LD32_OSTGame
         protected override void LoadContent()
         {
             Window.Title = "Paper Cut - LD32";
+            //accDevice = new Accelerometer();
             DebugBoxRect = new Texture2D(graphics.GraphicsDevice, 80, 30);
             Color[] data = new Color[80 * 30];
             for (int i = 0; i < data.Length; ++i) data[i] = Color.Chocolate;
@@ -412,11 +415,33 @@ namespace LD32_OSTGame
                 if (currentPad.Buttons.A == ButtonState.Pressed)
                 {
                     ActiveSplash = false;
+                    Entites.Clear();
+                    BallCount = 0;
+                    Particles.Clear();
                 }
+
+                TouchCollection currentTouch = TouchPanel.GetState();
+
+                if (currentTouch.Count > 0)
+                {
+                    ActiveSplash = false;
+                    Entites.Clear();
+                    BallCount = 0;
+                    Particles.Clear();
+                }
+
+                
+                
+
+               
 
                 PreviousKeyboard = currentKeyboard;
                 PreviousGamePad = currentPad;
             }
+            #endregion
+
+            #region Touch
+
             #endregion
 
             if (ActiveSplash == false && ActivePlay == false)

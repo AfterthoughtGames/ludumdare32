@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Ouya</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball1.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball1_Med.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball1_Med2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball1_Small.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball2_Med.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball2_Med2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Ball2_Small.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/bg1024.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/cat.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/GUIFont.spritefont</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/HappyRazorBladePickup.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/hit.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Kitten.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/KittenBullet.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Particle1.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/pew.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/pew2.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/pew3.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/plane.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/plane2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/plane3.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/plane4.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Razor.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/rip.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/Shard.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/splash720.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutOuya/Content/../Raw/splash768.png</File>
+  </SourceFiles>
+</SourceFileCollection>

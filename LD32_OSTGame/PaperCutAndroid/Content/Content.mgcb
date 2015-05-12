@@ -1,9 +1,9 @@
 
 #----------------------------- Global Properties ----------------------------#
 
-/outputDir:../Content/
-/intermediateDir:obj/Windows
-/platform:Windows
+/outputDir:..\Raw
+/intermediateDir:..\Raw
+/platform:Android
 /config:
 /profile:Reach
 /compress:False
@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../RawContent/plane.png
+#begin ../Raw/Ball1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -22,9 +22,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/plane.png
+/build:../Raw/Ball1.png
 
-#begin ../RawContent/Ball1.png
+#begin ../Raw/Ball1_Med.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -33,9 +33,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball1.png
+/build:../Raw/Ball1_Med.png
 
-#begin ../RawContent/Shard.png
+#begin ../Raw/Ball1_Med2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -44,9 +44,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Shard.png
+/build:../Raw/Ball1_Med2.png
 
-#begin ../RawContent/Ball1_Med.png
+#begin ../Raw/Ball1_Small.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -55,9 +55,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball1_Med.png
+/build:../Raw/Ball1_Small.png
 
-#begin ../RawContent/Ball1_Med2.png
+#begin ../Raw/Ball2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -66,9 +66,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball1_Med2.png
+/build:../Raw/Ball2.png
 
-#begin ../RawContent/Ball1_Small.png
+#begin ../Raw/Ball2_Med.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -77,9 +77,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball1_Small.png
+/build:../Raw/Ball2_Med.png
 
-#begin ../RawContent/Ball2.png
+#begin ../Raw/Ball2_Med2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -88,9 +88,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball2.png
+/build:../Raw/Ball2_Med2.png
 
-#begin ../RawContent/Ball2_Med.png
+#begin ../Raw/Ball2_Small.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -99,9 +99,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball2_Med.png
+/build:../Raw/Ball2_Small.png
 
-#begin ../RawContent/Ball2_Med2.png
+#begin ../Raw/bg1024.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -110,61 +110,83 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Ball2_Med2.png
+/build:../Raw/bg1024.png
 
-#begin ../RawContent/Ball2_Small.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:TextureFormat=Color
-/build:../RawContent/Ball2_Small.png
-
-#begin ../RawContent/HappyRazorBladePickup.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:TextureFormat=Color
-/build:../RawContent/HappyRazorBladePickup.png
-
-#begin ../RawContent/pew.wav
+#begin ../Raw/cat.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../RawContent/pew.wav
+/build:../Raw/cat.wav
 
-#begin ../RawContent/hit.wav
+#begin ../Raw/HappyRazorBladePickup.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:../Raw/HappyRazorBladePickup.png
+
+#begin ../Raw/hit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../RawContent/hit.wav
+/build:../Raw/hit.wav
 
-#begin ../RawContent/rip.wav
+#begin ../Raw/Kitten.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:../Raw/Kitten.png
+
+#begin ../Raw/KittenBullet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:../Raw/KittenBullet.png
+
+#begin ../Raw/Particle1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:TextureFormat=Color
+/build:../Raw/Particle1.png
+
+#begin ../Raw/pew.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../RawContent/rip.wav
+/build:../Raw/pew.wav
 
-#begin ../RawContent/pew2.wav
+#begin ../Raw/pew2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../RawContent/pew2.wav
+/build:../Raw/pew2.wav
 
-#begin ../RawContent/pew3.wav
+#begin ../Raw/pew3.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../RawContent/pew3.wav
+/build:../Raw/pew3.wav
 
-#begin ../RawContent/plane2.png
+#begin ../Raw/plane.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -173,9 +195,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/plane2.png
+/build:../Raw/plane.png
 
-#begin ../RawContent/plane3.png
+#begin ../Raw/plane2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -184,9 +206,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/plane3.png
+/build:../Raw/plane2.png
 
-#begin ../RawContent/plane4.png
+#begin ../Raw/plane3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -195,9 +217,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/plane4.png
+/build:../Raw/plane3.png
 
-#begin ../RawContent/Particle1.png
+#begin ../Raw/plane4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -206,9 +228,9 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Particle1.png
+/build:../Raw/plane4.png
 
-#begin ../RawContent/Razor.png
+#begin ../Raw/Razor.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -217,9 +239,15 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Razor.png
+/build:../Raw/Razor.png
 
-#begin ../RawContent/Kitten.png
+#begin ../Raw/rip.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:../Raw/rip.wav
+
+#begin ../Raw/Shard.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -228,9 +256,15 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/Kitten.png
+/build:../Raw/Shard.png
 
-#begin ../RawContent/KittenBullet.png
+#begin ../Raw/GUIFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:TextureFormat=Compressed
+/build:../Raw/GUIFont.spritefont
+
+#begin ../Raw/splash768.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -239,27 +273,5 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:TextureFormat=Color
-/build:../RawContent/KittenBullet.png
-
-#begin ../RawContent/bg1024.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:TextureFormat=Color
-/build:../RawContent/bg1024.png
-
-#begin ../../PaperCutAndroid/Raw/splash720.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:TextureFormat=Color
-/build:../../PaperCutAndroid/Raw/splash720.png
+/build:../Raw/splash768.png
 

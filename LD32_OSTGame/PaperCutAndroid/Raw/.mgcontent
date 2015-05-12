@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Android</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball1.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball1_Med.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball1_Med2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball1_Small.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball2_Med.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball2_Med2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Ball2_Small.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/bg1024.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/cat.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/HappyRazorBladePickup.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/hit.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Kitten.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/KittenBullet.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Particle1.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/pew.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/pew2.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/pew3.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/plane.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/plane2.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/plane3.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/plane4.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Razor.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/rip.wav</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/Shard.png</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/GUIFont.spritefont</File>
+    <File>C:/Users/vanproyaa/Documents/GitHub/ludumdare32/LD32_OSTGame/PaperCutAndroid/Content/../Raw/splash768.png</File>
+  </SourceFiles>
+</SourceFileCollection>
