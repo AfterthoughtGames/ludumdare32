@@ -12,6 +12,8 @@ Code –Matt “Lord of the Level” Johnson
 
 Art & Porting – Ben “Bald Spectator” Werden 
 
+<iframe frameborder="0" src="https://itch.io/embed/72530" width="552" height="167"></iframe>
+
 ![LD32 Screenshoot](http://ludumdare.com/compo/wp-content/compo2/444368/52804-shot0-1429494763.png)
 
 [LD32 Page](http://ludumdare.com/compo/ludum-dare-32/?action=preview&uid=52804)
